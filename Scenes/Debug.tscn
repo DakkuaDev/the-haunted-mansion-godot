@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://k5jyaiupyqc2"]
+
+[node name="TextEdit" type="TextEdit"]
+offset_right = 249.0
+offset_bottom = 196.0
+text = "DEBUG "

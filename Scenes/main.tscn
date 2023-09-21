@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdjxaeqa22rw1"]
+
+[ext_resource type="PackedScene" uid="uid://be2lguv776yc0" path="res://Scenes/Camera.tscn" id="1_3spe4"]
+[ext_resource type="PackedScene" uid="uid://jnrmqj28d488" path="res://Scenes/Player.tscn" id="2_ptek1"]
+[ext_resource type="PackedScene" uid="uid://cd4ighmu6dvu3" path="res://Scenes/WorldEnvironment.tscn" id="3_ue8e5"]
+[ext_resource type="PackedScene" uid="uid://co4epl7d174gu" path="res://Scenes/Level.tscn" id="5_t7nhb"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera" parent="." instance=ExtResource("1_3spe4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.633872, 2.74857)
+
+[node name="Player" parent="." instance=ExtResource("2_ptek1")]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("3_ue8e5")]
+
+[node name="Area3D" parent="." instance=ExtResource("5_t7nhb")]
+transform = Transform3D(6.986, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.735434, 0)
