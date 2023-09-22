@@ -80,4 +80,11 @@ public partial class PlayerMovement : CharacterBody3D
 
         }
     }
+
+	private void _on_area_3d_body_entered(Node3D body)
+	{
+		GD.Print("_on_area_3d_body_entered");
+
+		//todo: door mechanic
+	}
 }
