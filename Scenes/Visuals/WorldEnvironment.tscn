@@ -2,6 +2,8 @@
 
 [sub_resource type="Environment" id="Environment_qm4qf"]
 background_mode = 1
+background_color = Color(0.87451, 0.890196, 0.921569, 1)
+ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
 environment = SubResource("Environment_qm4qf")

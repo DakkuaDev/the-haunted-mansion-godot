@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c8tsatjmlc8du"
-path="res://.godot/imported/Prueba.glb-6b48081ed88213c31f3c0e68378514d0.scn"
+path="res://.godot/imported/Prueba.glb-97e2088cdb48fe0e90b1059f2ccfb947.scn"
 
 [deps]
 
-source_file="res://Art/Prueba.glb"
-dest_files=["res://.godot/imported/Prueba.glb-6b48081ed88213c31f3c0e68378514d0.scn"]
+source_file="res://Art/Mesh/Prueba.glb"
+dest_files=["res://.godot/imported/Prueba.glb-97e2088cdb48fe0e90b1059f2ccfb947.scn"]
 
 [params]
 
