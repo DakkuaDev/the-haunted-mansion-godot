@@ -7,3 +7,4 @@ render_priority = 0
 shader = ExtResource("1_wtct3")
 shader_parameter/shadow_color = Color(0, 0, 0, 1)
 shader_parameter/shadow_thickness = 2.0
+shader_parameter/cositas = 0.695

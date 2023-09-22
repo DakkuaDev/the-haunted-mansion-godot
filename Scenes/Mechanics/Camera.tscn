@@ -15,6 +15,6 @@ size = Vector2(2, 2)
 [node name="Camera3D" type="Camera3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.907943)
+transform = Transform3D(4.4651, 0, 0, 0, 4.4651, 0, 0, 0, 4.4651, 0, 0, -2.70898)
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_10v38")

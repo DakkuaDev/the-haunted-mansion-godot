@@ -51,7 +51,7 @@ void fragment() {
 			
 			float dd_diff = clamp(abs((depth - dd) - (dd - du)), 0.0, 1.0);
 
-			float val = clamp(abs(depth - du), 0., 1.)/(x*x + y*y)*dd_diff*dd_diff*5000.0;
+			float val = clamp(abs(depth - du), 0., 1.)/(x*x + y*y)*dd_diff*dd_diff*2000.0;
 			
 			val = clamp(val, 0.0, 1.0);
 
