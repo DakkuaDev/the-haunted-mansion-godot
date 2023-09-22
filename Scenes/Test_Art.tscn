@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddj6pwkgtkp6r"]
+
+[ext_resource type="PackedScene" uid="uid://c8tsatjmlc8du" path="res://Art/Prueba.glb" id="1_lmn57"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e31o7"]
+
+[node name="Test_Art" type="Node3D"]
+
+[node name="Prueba" parent="." instance=ExtResource("1_lmn57")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.350454, 0, -0.515796)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.02363, 1.20441, -0.4038)
+mesh = SubResource("BoxMesh_e31o7")
