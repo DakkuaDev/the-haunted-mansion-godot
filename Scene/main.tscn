@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcxy1fncxdox4"]
+[gd_scene load_steps=8 format=3 uid="uid://bcxy1fncxdox4"]
 
 [ext_resource type="PackedScene" uid="uid://dy6q64ito5wbx" path="res://Scene/Logic/Player.tscn" id="1_sxdin"]
 [ext_resource type="PackedScene" uid="uid://b6htw018k26cx" path="res://Scene/Logic/Door.tscn" id="2_sbbww"]
 [ext_resource type="PackedScene" uid="uid://x8rpdfkkg3hw" path="res://Scene/Logic/GhostObject.tscn" id="3_b66nd"]
 [ext_resource type="AudioStream" uid="uid://chhl84d2molwq" path="res://Audio/military-alarm-129017.mp3" id="3_f426p"]
+[ext_resource type="PackedScene" uid="uid://kl77aqcy3q52" path="res://Scene/Logic/RoomLight.tscn" id="5_73jsi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ouq3"]
 
@@ -18,10 +19,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.949025, 0)
 
 [node name="GhostObject" parent="GhostObjectList" node_paths=PackedStringArray("ghost_dependency") instance=ExtResource("3_b66nd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.90138, -1.23914, 0)
-ghost_dependency = NodePath("../GhostObject_Light")
+ghost_dependency = NodePath("../RoomLight")
 
-[node name="GhostObject_Light" parent="GhostObjectList" instance=ExtResource("3_b66nd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62096, -1.23914, 0)
+[node name="RoomLight" parent="GhostObjectList" instance=ExtResource("3_b66nd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62428, -1.28466, 0)
 enabled_sound = ExtResource("3_f426p")
 
 [node name="DoorList" type="Node3D" parent="."]
@@ -71,3 +72,10 @@ mesh = SubResource("BoxMesh_287he")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.7174, 0)
+
+[node name="RoomLight" parent="." instance=ExtResource("5_73jsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0425453, 0.930308, 0)
+default_energy_value = 10.0
+
+[connection signal="on_ghost_disabled" from="GhostObjectList/RoomLight" to="RoomLight" method="_on_room_light_on_ghost_disabled"]
+[connection signal="on_ghost_enabled" from="GhostObjectList/RoomLight" to="RoomLight" method="_on_room_light_on_ghost_enabled"]

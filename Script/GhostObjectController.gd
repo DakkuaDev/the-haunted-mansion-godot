@@ -19,8 +19,8 @@ var ghost_obj_state : int = 0 # 0: disabled, 1: enabled
 
 var player : Node3D = null
 
-signal on_enabled_signal
-signal on_disabled_signal
+signal on_ghost_enabled
+signal on_ghost_disabled
 
 func _ready():
 	information_label = get_node("Label3D")
@@ -72,7 +72,7 @@ func _on_enabled_object():
 		enabled_sound_player.play()
 		obj_anim.play("on_enabled")
 		
-		on_enabled_signal.emit()
+		on_ghost_enabled.emit()
 	
 func _on_interact_object():
 	if(ghost_obj_state == 1):
@@ -84,7 +84,7 @@ func _on_interact_object():
 	
 		enabled_sound_player.stop()
 		
-		on_disabled_signal.emit()
+		on_ghost_disabled.emit()
 	
 	
 	
