@@ -50,10 +50,12 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept") && ghost_obj_action == true :
 		print("_on_interact_object")
 		_on_interact_object()
-			
-	var val = UtilsManager._generate_random_value_between(0, 100000)
-	if(val < enabled_probability):
-		_process_ghost_dependency()
+		
+		
+	if(ElectricalSupplySystem.is_down != false):	
+		var val = UtilsManager._generate_random_value_between(0, 100000)
+		if(val < enabled_probability):
+			_process_ghost_dependency()
 	
 	pass
 	

@@ -1,16 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcxy1fncxdox4"]
+[gd_scene load_steps=10 format=3 uid="uid://bcxy1fncxdox4"]
 
 [ext_resource type="PackedScene" uid="uid://dy6q64ito5wbx" path="res://Scene/Logic/Player.tscn" id="1_sxdin"]
+[ext_resource type="Script" path="res://Script/ElectricalSupplySystem.gd" id="1_xlost"]
 [ext_resource type="PackedScene" uid="uid://b6htw018k26cx" path="res://Scene/Logic/Door.tscn" id="2_sbbww"]
 [ext_resource type="PackedScene" uid="uid://x8rpdfkkg3hw" path="res://Scene/Logic/GhostObject.tscn" id="3_b66nd"]
 [ext_resource type="AudioStream" uid="uid://chhl84d2molwq" path="res://Audio/military-alarm-129017.mp3" id="3_f426p"]
 [ext_resource type="PackedScene" uid="uid://kl77aqcy3q52" path="res://Scene/Logic/RoomLight.tscn" id="5_73jsi"]
+[ext_resource type="PackedScene" uid="uid://bkr411n03e27l" path="res://Scene/Logic/ElectricalSupply.tscn" id="7_gno6k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ouq3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_287he"]
 
 [node name="main" type="Node3D"]
+script = ExtResource("1_xlost")
 
 [node name="Player" parent="." instance=ExtResource("1_sxdin")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.949025, 0)
@@ -76,6 +79,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.7174, 0)
 [node name="RoomLight" parent="." instance=ExtResource("5_73jsi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0425453, 0.930308, 0)
 default_energy_value = 10.0
+
+[node name="RoomLight2" parent="." instance=ExtResource("5_73jsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0425453, 0.930308, 0)
+default_energy_value = 10.0
+
+[node name="RoomLight3" parent="." instance=ExtResource("5_73jsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0425453, 0.930308, 0)
+default_energy_value = 10.0
+
+[node name="RoomLight4" parent="." instance=ExtResource("5_73jsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0425453, 0.930308, 0)
+default_energy_value = 10.0
+
+[node name="RoomLight5" parent="." instance=ExtResource("5_73jsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0425453, 0.930308, 0)
+default_energy_value = 10.0
+
+[node name="ElectricalSupplySystem" parent="." instance=ExtResource("7_gno6k")]
 
 [connection signal="on_ghost_disabled" from="GhostObjectList/RoomLight" to="RoomLight" method="_on_room_light_on_ghost_disabled"]
 [connection signal="on_ghost_enabled" from="GhostObjectList/RoomLight" to="RoomLight" method="_on_room_light_on_ghost_enabled"]
