@@ -4,26 +4,26 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kngny"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7b66"]
-transparency = 1
-albedo_color = Color(0.0627451, 1, 1, 0.568627)
+[sub_resource type="BoxMesh" id="BoxMesh_a22nd"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_kjmdm"]
-material = SubResource("StandardMaterial3D_e7b66")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kcev3"]
+albedo_color = Color(0, 1, 1, 1)
 
 [node name="Door" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9997, -1.26446, 0)
 script = ExtResource("1_00m2b")
-debug = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_kngny")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-mesh = SubResource("BoxMesh_kjmdm")
+mesh = SubResource("BoxMesh_a22nd")
+surface_material_override/0 = SubResource("StandardMaterial3D_kcev3")
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12668, 0.986838, 0)
-text = "default text"
+text = "Subir (W)
+Bajar (S)"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
