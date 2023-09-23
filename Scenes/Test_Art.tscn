@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddj6pwkgtkp6r"]
-
-[ext_resource type="PackedScene" uid="uid://c8tsatjmlc8du" path="res://Art/Mesh/Prueba.glb" id="1_lmn57"]
-
-[node name="Test_Art" type="Node3D"]
-
-[node name="Prueba" parent="." instance=ExtResource("1_lmn57")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.350454, 0, -0.515796)

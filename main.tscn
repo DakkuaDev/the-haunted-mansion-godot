@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://5hsb6ud2vqav"]
+
+[ext_resource type="Material" uid="uid://c6ljyoe8plwd7" path="res://Shader/OutlineShaderMat.tres" id="1_pv2e0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_087g1"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_m8la6"]
+material = ExtResource("1_pv2e0")
+size = Vector2(10, 10)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.959062, 0, -0.283195, 0, 1, 0, 0.283195, 0, 0.959062, -5.46769, -0.620489, -0.780359)
+mesh = SubResource("CapsuleMesh_087g1")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.00666708, -0.403648, 0.91489, -1.86077e-09, 0.91491, 0.403657, -0.999978, 0.00269121, -0.00609978, 0.458745, 1.07918, -4.46893)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, -1.86265e-08, -1.39698e-09, -2.32831e-10, 0.866025, -0.5, -2.98023e-08, 0.5, 0.866025, 3.28778, 0.587556, -1.3109)
+mesh = SubResource("QuadMesh_m8la6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0337257, -0.160578, 0.986447, 0.0204334, 0.986913, 0.159955, -0.999222, 0.0147619, 0.0365655, 5.94283, 7.2825, 0.0530977)
+light_energy = 3.501
+light_volumetric_fog_energy = 6.867
+shadow_bias = 0.07
