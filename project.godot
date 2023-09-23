@@ -10,11 +10,16 @@ config_version=5
 
 [application]
 
-config/name="Indie Spain Jam 23"
-run/main_scene="res://Scenes/main.tscn"
-config/features=PackedStringArray("4.1", "C#", "Forward Plus")
+config/name="IndieSpainJam-23-Godot"
+run/main_scene="res://Scene/main.tscn"
+config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [dotnet]
 
-project/assembly_name="Indie Spain Jam 23"
+project/assembly_name="IndieSpainJam-23-Godot"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

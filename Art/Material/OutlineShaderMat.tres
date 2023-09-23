@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c6ljyoe8plwd7"]
+
+[ext_resource type="Shader" path="res://Shader/OutlineShader.gdshader" id="1_evj0r"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_evj0r")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 3.45
+shader_parameter/normal_val = 13.535
