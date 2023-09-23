@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://be2lguv776yc0"]
+
+[ext_resource type="Shader" path="res://Art/Shader/OutlineShader.gdshader" id="1_qqd8i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jg5qn"]
+render_priority = 0
+shader = ExtResource("1_qqd8i")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_10v38"]
+material = SubResource("ShaderMaterial_jg5qn")
+size = Vector2(2, 2)
+
+[node name="Camera3D" type="Camera3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.4651, 0, 0, 0, 4.4651, 0, 0, 0, 4.4651, 0, 0, -2.70898)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_10v38")
