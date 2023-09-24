@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ce1xpx1exm4oe"]
+[gd_scene load_steps=5 format=3 uid="uid://ce1xpx1exm4oe"]
 
 [ext_resource type="Script" path="res://Script/MenuSystem.gd" id="1_ec24g"]
 [ext_resource type="Texture2D" uid="uid://p7ilhrp8cnhy" path="res://Art/UI/game-over-screen.jpg" id="1_px1ot"]
+[ext_resource type="Texture2D" uid="uid://dor7b1nr7dhxp" path="res://Art/UI/main-menu-screen.jpg" id="2_51n6c"]
 [ext_resource type="Texture2D" uid="uid://qas8m2u1mht6" path="res://Art/UI/win-screen.jpg" id="3_1nmpm"]
 
 [node name="Menu" type="Control" node_paths=PackedStringArray("game_over_menu", "win_menu", "main_menu")]
@@ -15,7 +16,15 @@ grow_vertical = 2
 script = ExtResource("1_ec24g")
 game_over_menu = NodePath("GameOver")
 win_menu = NodePath("Win")
-main_menu = NodePath("")
+main_menu = NodePath("MainMenu")
+
+[node name="MainMenu" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.52549)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_51n6c")
 
 [node name="GameOver" type="TextureRect" parent="."]
 visible = false
