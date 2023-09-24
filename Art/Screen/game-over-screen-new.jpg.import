@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjev4jkfig7hx"
-path="res://.godot/imported/stress_bar_demo_texture.png-57a85002980945b2ee405c6925ce91cc.ctex"
+uid="uid://c8i05a86eehsb"
+path="res://.godot/imported/game-over-screen-new.jpg-4d9eaf2b118120c841ef5a4d7888af5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/stress_bar_demo_texture.png"
-dest_files=["res://.godot/imported/stress_bar_demo_texture.png-57a85002980945b2ee405c6925ce91cc.ctex"]
+source_file="res://Art/Screen/game-over-screen-new.jpg"
+dest_files=["res://.godot/imported/game-over-screen-new.jpg-4d9eaf2b118120c841ef5a4d7888af5b.ctex"]
 
 [params]
 

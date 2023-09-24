@@ -15,8 +15,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
 	animated_sprite = get_node("AnimatedSprite3D")
 	animated_sprite.play("idle")
-	
-	spot_light = get_node("SpotLight3D")
 
 
 func _physics_process(delta):

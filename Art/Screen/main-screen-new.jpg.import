@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p7ilhrp8cnhy"
-path="res://.godot/imported/game-over-screen.jpg-6072957c92a8c8535fa6126210b6305e.ctex"
+uid="uid://clr1pd70kqhwa"
+path="res://.godot/imported/main-screen-new.jpg-6f58c633d422bcbbcf9da8d2653f55c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/game-over-screen.jpg"
-dest_files=["res://.godot/imported/game-over-screen.jpg-6072957c92a8c8535fa6126210b6305e.ctex"]
+source_file="res://Art/Screen/main-screen-new.jpg"
+dest_files=["res://.godot/imported/main-screen-new.jpg-6f58c633d422bcbbcf9da8d2653f55c3.ctex"]
 
 [params]
 
