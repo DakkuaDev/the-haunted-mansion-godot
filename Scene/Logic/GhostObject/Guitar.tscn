@@ -5,6 +5,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dgm5fm215psji" path="res://Art/Animation/GhostObject/guitar_sprite_frames.tres" id="2_vhxkn"]
 
 [node name="GhostObject" instance=ExtResource("1_bupqy")]
+enabled_timer_seconds = 12
 stress_increase = 5
 label_text = "Interactuar "
 enabled_sound = ExtResource("2_ppjii")

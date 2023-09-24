@@ -5,6 +5,8 @@
 [ext_resource type="SpriteFrames" uid="uid://brqwymm2wwsex" path="res://Art/Animation/GhostObject/washing_machine_sprite_frames.tres" id="2_ng25m"]
 
 [node name="GhostObject" instance=ExtResource("1_wdd6k")]
+enabled_timer_seconds = 12
+stress_increase = 5
 label_text = "Interactuar "
 enabled_sound = ExtResource("2_dxfqq")
 debug = false

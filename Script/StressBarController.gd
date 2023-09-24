@@ -2,6 +2,7 @@ extends Control
 
 @export var streess_bar_max_value : int = 100
 @export var process_stress_time : float = 0.1
+@export var stress_decrease : float = 1
 
 var texture_progress_bar : TextureProgressBar = null
 
@@ -29,7 +30,7 @@ func _ready():
 	
 func _process_stress():
 	if(texture_progress_bar.value < 100):
-		texture_progress_bar.value += actual_stress_value
+		texture_progress_bar.value += actual_stress_value - stress_decrease
 	else:
 		print("GAME OVER")
 		timer.stop()

@@ -5,6 +5,8 @@
 [ext_resource type="SpriteFrames" uid="uid://bokw1i2d1l5ee" path="res://Art/Animation/GhostObject/television_sprite_frames.tres" id="2_wu5ny"]
 
 [node name="GhostObject" instance=ExtResource("1_tguft")]
+enabled_timer_seconds = 12
+stress_increase = 4
 label_text = "Interactuar "
 enabled_sound = ExtResource("2_fvjg4")
 debug = false
