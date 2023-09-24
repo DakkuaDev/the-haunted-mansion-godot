@@ -2,7 +2,8 @@ extends Node3D
 
 var id : int # 0 is the default value
 
-@export var enabled_probability : int = 100
+#@export var enabled_probability : int = 100
+@export var enabled_timer_seconds = 10
 @export var initial_ghost_state = 0
 @export var label_text : String = "default text"
 @export var enabled_sound : AudioStream = null
@@ -18,6 +19,8 @@ var has_ghost_dependency = false;
 var information_label : Label3D = null
 var ghost_obj_action : bool = false
 var ghost_obj_state : int = 0 # 0: disabled, 1: enabled
+var on_timer = false
+var actual_timer : Timer = null
 
 var player : Node3D = null
 
@@ -30,14 +33,15 @@ func _ready():
 	enabled_sound_player = get_node("AudioStreamPlayer3D_Enabled")
 	disabled_sound_player = get_node("AudioStreamPlayer3D_Disabled")
 	
-	GlobalManager.electrical_supply.connect("on_electrical_turn_on", _on_enabled_object, 0)
-
+	GlobalManager.electrical_supply.connect("on_electrical_turn_on", _on_electrical_supply, 0)
+	
 	
 	if(enabled_sound_player != null): # sound plaº_on_interact_object
 		enabled_sound_player.stream = enabled_sound
 		
 	if(ghost_dependency != null):
 		has_ghost_dependency = true	
+	ghost_obj_state = initial_ghost_state
 
 	if information_label != null:
 		information_label.text = ""	
@@ -46,7 +50,7 @@ func _ready():
 		get_node("CollisionShape3D/MeshInstance3D").visible = false
 		
 	id = UtilsManager._generate_random_id()
-	ghost_obj_state = initial_ghost_state
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -55,16 +59,43 @@ func _process(delta):
 		print("_on_interact_object")
 		_on_interact_object()
 		
-	var val = UtilsManager._generate_random_value_between(0, 100000)
-	if(val < enabled_probability):
-		_process_ghost_dependency()
+	#var val = UtilsManager._generate_random_value_between(0, 100000)
+	#if(val < enabled_probability):
+	if(ghost_obj_state == 0 && on_timer == false):
+		if(has_ghost_dependency == true):
+			if(ghost_dependency.ghost_obj_state == 1):			
+				start_timer()			
+		else:
+			start_timer()
+				
+			
+	#_process_ghost_dependency()
 	
+func start_timer():
+	on_timer = true
+	
+	var timer = Timer.new()
+	actual_timer = timer
+	actual_timer.connect("timeout",_process_ghost_dependency, 0) 
+	actual_timer.wait_time = enabled_timer_seconds
+	actual_timer.one_shot = true
+	add_child(actual_timer)
+	actual_timer.start()
+
 func _process_ghost_dependency():
+	actual_timer.stop()	
+	on_timer = false
+	
 	if(has_ghost_dependency == true):
 			if(ghost_dependency.ghost_obj_state == 1):
 				_on_enabled_object()
 	else:
 			_on_enabled_object()
+
+func _on_electrical_supply():
+	#actual_timer.stop()
+	if(has_ghost_dependency == false):
+		ghost_obj_state = 1
 	
 func _on_enabled_object():
 	if(ghost_obj_state == 0):	

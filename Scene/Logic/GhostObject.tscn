@@ -32,6 +32,7 @@ animations = [{
 
 [node name="GhostObject" type="Area3D"]
 script = ExtResource("1_tr70e")
+enabled_timer_seconds = 5
 debug = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
