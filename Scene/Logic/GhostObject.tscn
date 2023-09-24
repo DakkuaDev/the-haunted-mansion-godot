@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://x8rpdfkkg3hw"]
+[gd_scene load_steps=7 format=3 uid="uid://x8rpdfkkg3hw"]
 
 [ext_resource type="Script" path="res://Script/GhostObjectController.gd" id="1_tr70e"]
-[ext_resource type="AudioStream" uid="uid://svg6clk33brv" path="res://Audio/beep-6-96243.mp3" id="2_77uvn"]
-[ext_resource type="AudioStream" uid="uid://p8hbq1w5vd27" path="res://Audio/emergency-alarm-with-reverb-29431.mp3" id="2_stqsf"]
+[ext_resource type="AudioStream" uid="uid://svg6clk33brv" path="res://Audio/Sound/beep-6-96243.mp3" id="3_8gqgv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kngny"]
 
@@ -33,7 +32,6 @@ animations = [{
 
 [node name="GhostObject" type="Area3D"]
 script = ExtResource("1_tr70e")
-enabled_sound = ExtResource("2_stqsf")
 debug = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -52,7 +50,7 @@ animation = &"on_enabled"
 [node name="AudioStreamPlayer3D_Enabled" type="AudioStreamPlayer3D" parent="."]
 
 [node name="AudioStreamPlayer3D_Disabled" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("2_77uvn")
+stream = ExtResource("3_8gqgv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
 [connection signal="body_exited" from="." to="." method="_on_body_exited" flags=18]

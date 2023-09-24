@@ -1,6 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkr411n03e27l"]
+[gd_scene load_steps=6 format=3 uid="uid://bkr411n03e27l"]
 
 [ext_resource type="Script" path="res://Script/ElectricalSupplySystem.gd" id="1_egmqh"]
+[ext_resource type="AudioStream" uid="uid://cyvjcgjvpegqi" path="res://Audio/Sound/power-outage-effect-1695541531.mp3" id="2_kubqe"]
 
-[node name="ElectricalSupplySystem" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_isdxx"]
+size = Vector3(1.70071, 1.61343, 0.691906)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bid68"]
+transparency = 1
+albedo_color = Color(1, 1, 0.337255, 0.513726)
+
+[sub_resource type="TorusMesh" id="TorusMesh_fpxw6"]
+material = SubResource("StandardMaterial3D_bid68")
+
+[node name="ElectricalSupply" type="Area3D"]
 script = ExtResource("1_egmqh")
+turn_off_sound = ExtResource("2_kubqe")
+debug = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_isdxx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("TorusMesh_fpxw6")
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="."]
+
+[node name="AudioStreamPlayer3D_turn_off" type="AudioStreamPlayer3D" parent="."]
+
+[node name="AudioStreamPlayer3D_turn_on" type="AudioStreamPlayer3D" parent="."]

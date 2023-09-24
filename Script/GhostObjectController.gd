@@ -3,10 +3,12 @@ extends Node3D
 var id : int # 0 is the default value
 
 @export var enabled_probability : int = 100
+@export var initial_ghost_state = 0
 @export var label_text : String = "default text"
 @export var enabled_sound : AudioStream = null
 @export var ghost_dependency : Node3D = null
 @export var debug : bool = false
+
 
 var obj_anim : AnimatedSprite3D = null
 var enabled_sound_player : AudioStreamPlayer3D = null
@@ -27,9 +29,11 @@ func _ready():
 	obj_anim = get_node("AnimatedSprite3D")
 	enabled_sound_player = get_node("AudioStreamPlayer3D_Enabled")
 	disabled_sound_player = get_node("AudioStreamPlayer3D_Disabled")
+	
+	GlobalManager.electrical_supply.connect("on_electrical_turn_on", _on_enabled_object, 0)
 
 	
-	if(enabled_sound_player != null):
+	if(enabled_sound_player != null): # sound plaº_on_interact_object
 		enabled_sound_player.stream = enabled_sound
 		
 	if(ghost_dependency != null):
@@ -42,22 +46,18 @@ func _ready():
 		get_node("CollisionShape3D/MeshInstance3D").visible = false
 		
 	id = UtilsManager._generate_random_id()
-	
+	ghost_obj_state = initial_ghost_state
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept") && ghost_obj_action == true :
+	if (Input.is_action_just_pressed("ui_accept") && ghost_obj_action == true) :
 		print("_on_interact_object")
 		_on_interact_object()
 		
-		
-	if(ElectricalSupplySystem.is_down != false):	
-		var val = UtilsManager._generate_random_value_between(0, 100000)
-		if(val < enabled_probability):
-			_process_ghost_dependency()
-	
-	pass
+	var val = UtilsManager._generate_random_value_between(0, 100000)
+	if(val < enabled_probability):
+		_process_ghost_dependency()
 	
 func _process_ghost_dependency():
 	if(has_ghost_dependency == true):
@@ -70,8 +70,10 @@ func _on_enabled_object():
 	if(ghost_obj_state == 0):	
 		print("_on_enabled_object")
 		ghost_obj_state = 1
-	
-		enabled_sound_player.play()
+		
+		if(enabled_sound != null):
+			enabled_sound_player.play()
+			
 		obj_anim.play("on_enabled")
 		
 		on_ghost_enabled.emit()
@@ -89,7 +91,7 @@ func _on_interact_object():
 		on_ghost_disabled.emit()
 	
 	
-	
+## events
 func _on_body_entered(body:Node3D):
 	print("body entered")
 
@@ -104,4 +106,5 @@ func _on_body_exited(body:Node3D):
 		
 	information_label.text = ""		
 	ghost_obj_action = false
+	
 	player = null

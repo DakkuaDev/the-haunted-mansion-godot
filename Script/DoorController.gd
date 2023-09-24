@@ -1,8 +1,5 @@
 extends Node3D
 
-
-var id : int # 0 is the default value
-
 @export var previous_door : Node3D = null
 @export var next_door : Node3D = null
 @export var previous_door_label : String = "default text"
@@ -24,8 +21,6 @@ func _ready():
 		
 	if debug != true:
 		get_node("CollisionShape3D/MeshInstance3D").visible = false
-		
-	id = UtilsManager._generate_random_id()
 	
 
 	

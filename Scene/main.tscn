@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcxy1fncxdox4"]
+[gd_scene load_steps=12 format=3 uid="uid://bcxy1fncxdox4"]
 
 [ext_resource type="PackedScene" uid="uid://dy6q64ito5wbx" path="res://Scene/Logic/Player.tscn" id="1_sxdin"]
-[ext_resource type="Script" path="res://Script/ElectricalSupplySystem.gd" id="1_xlost"]
+[ext_resource type="AudioStream" uid="uid://c0ext4n8sw2uu" path="res://Audio/Sound/power-on-39172.mp3" id="2_1wns3"]
 [ext_resource type="PackedScene" uid="uid://b6htw018k26cx" path="res://Scene/Logic/Door.tscn" id="2_sbbww"]
 [ext_resource type="PackedScene" uid="uid://x8rpdfkkg3hw" path="res://Scene/Logic/GhostObject.tscn" id="3_b66nd"]
-[ext_resource type="AudioStream" uid="uid://chhl84d2molwq" path="res://Audio/military-alarm-129017.mp3" id="3_f426p"]
-[ext_resource type="PackedScene" uid="uid://kl77aqcy3q52" path="res://Scene/Logic/RoomLight.tscn" id="5_73jsi"]
+[ext_resource type="AudioStream" uid="uid://cyvjcgjvpegqi" path="res://Audio/Sound/power-outage-effect-1695541531.mp3" id="4_gifgx"]
+[ext_resource type="AudioStream" uid="uid://0y7ko1afqjaw" path="res://Audio/Sound/light-switch-81967.mp3" id="4_n6xhb"]
+[ext_resource type="PackedScene" uid="uid://b5jd5q6fnw822" path="res://Scene/Logic/RoomLight.tscn" id="5_73jsi"]
+[ext_resource type="AudioStream" uid="uid://p8hbq1w5vd27" path="res://Audio/Sound/emergency-alarm-with-reverb-29431.mp3" id="5_bj6kc"]
 [ext_resource type="PackedScene" uid="uid://bkr411n03e27l" path="res://Scene/Logic/ElectricalSupply.tscn" id="7_gno6k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ouq3"]
@@ -13,7 +15,11 @@
 [sub_resource type="BoxMesh" id="BoxMesh_287he"]
 
 [node name="main" type="Node3D"]
-script = ExtResource("1_xlost")
+
+[node name="ElectricalSupply" parent="." instance=ExtResource("7_gno6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94035, -6.92972, 0)
+max_light_switched_on = 3
+turn_on_sound = ExtResource("2_1wns3")
 
 [node name="Player" parent="." instance=ExtResource("1_sxdin")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.949025, 0)
@@ -21,12 +27,46 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.949025, 0)
 [node name="GhostObjectList" type="Node3D" parent="."]
 
 [node name="GhostObject" parent="GhostObjectList" node_paths=PackedStringArray("ghost_dependency") instance=ExtResource("3_b66nd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.90138, -1.23914, 0)
-ghost_dependency = NodePath("../RoomLight")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4036, -1.23914, 0)
+enabled_probability = 0
+enabled_sound = ExtResource("5_bj6kc")
+ghost_dependency = NodePath("../RoomLightGhostObject")
 
-[node name="RoomLight" parent="GhostObjectList" instance=ExtResource("3_b66nd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62428, -1.28466, 0)
-enabled_sound = ExtResource("3_f426p")
+[node name="RoomLightGhostObject" parent="GhostObjectList" instance=ExtResource("3_b66nd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.35873, -1.1392, -0.00907516)
+enabled_probability = 0
+initial_ghost_state = 1
+enabled_sound = ExtResource("4_n6xhb")
+
+[node name="RoomLight" parent="GhostObjectList/RoomLightGhostObject" instance=ExtResource("5_73jsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0679746, -0.0420659, 0.00907516)
+
+[node name="RoomLightGhostObject2" parent="GhostObjectList" instance=ExtResource("3_b66nd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84559, -1.1392, -0.00907516)
+enabled_probability = 0
+initial_ghost_state = 1
+enabled_sound = ExtResource("4_gifgx")
+
+[node name="RoomLight" parent="GhostObjectList/RoomLightGhostObject2" instance=ExtResource("5_73jsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0679746, -0.0420659, 0.00907516)
+
+[node name="RoomLightGhostObject3" parent="GhostObjectList" instance=ExtResource("3_b66nd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10786, -7.00518, -0.0560284)
+enabled_probability = 0
+initial_ghost_state = 1
+enabled_sound = ExtResource("4_gifgx")
+
+[node name="RoomLight" parent="GhostObjectList/RoomLightGhostObject3" instance=ExtResource("5_73jsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0679746, -0.0420659, 0.00907516)
+
+[node name="RoomLightGhostObject4" parent="GhostObjectList" instance=ExtResource("3_b66nd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0484726, 4.51387, -0.00907516)
+enabled_probability = 0
+initial_ghost_state = 1
+enabled_sound = ExtResource("4_gifgx")
+
+[node name="RoomLight" parent="GhostObjectList/RoomLightGhostObject4" instance=ExtResource("5_73jsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0679746, -0.0420659, 0.00907516)
 
 [node name="DoorList" type="Node3D" parent="."]
 
@@ -76,27 +116,13 @@ mesh = SubResource("BoxMesh_287he")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.7174, 0)
 
-[node name="RoomLight" parent="." instance=ExtResource("5_73jsi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0425453, 0.930308, 0)
-default_energy_value = 10.0
-
-[node name="RoomLight2" parent="." instance=ExtResource("5_73jsi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0425453, 0.930308, 0)
-default_energy_value = 10.0
-
-[node name="RoomLight3" parent="." instance=ExtResource("5_73jsi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0425453, 0.930308, 0)
-default_energy_value = 10.0
-
-[node name="RoomLight4" parent="." instance=ExtResource("5_73jsi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0425453, 0.930308, 0)
-default_energy_value = 10.0
-
-[node name="RoomLight5" parent="." instance=ExtResource("5_73jsi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0425453, 0.930308, 0)
-default_energy_value = 10.0
-
-[node name="ElectricalSupplySystem" parent="." instance=ExtResource("7_gno6k")]
-
-[connection signal="on_ghost_disabled" from="GhostObjectList/RoomLight" to="RoomLight" method="_on_room_light_on_ghost_disabled"]
-[connection signal="on_ghost_enabled" from="GhostObjectList/RoomLight" to="RoomLight" method="_on_room_light_on_ghost_enabled"]
+[connection signal="body_entered" from="ElectricalSupply" to="ElectricalSupply" method="_on_body_entered"]
+[connection signal="body_exited" from="ElectricalSupply" to="ElectricalSupply" method="_on_body_exited"]
+[connection signal="on_ghost_disabled" from="GhostObjectList/RoomLightGhostObject" to="GhostObjectList/RoomLightGhostObject/RoomLight" method="_on_ghost_disabled_signal"]
+[connection signal="on_ghost_enabled" from="GhostObjectList/RoomLightGhostObject" to="GhostObjectList/RoomLightGhostObject/RoomLight" method="_on_ghost_enabled_signal"]
+[connection signal="on_ghost_disabled" from="GhostObjectList/RoomLightGhostObject2" to="GhostObjectList/RoomLightGhostObject2/RoomLight" method="_on_ghost_disabled_signal"]
+[connection signal="on_ghost_enabled" from="GhostObjectList/RoomLightGhostObject2" to="GhostObjectList/RoomLightGhostObject2/RoomLight" method="_on_ghost_enabled_signal"]
+[connection signal="on_ghost_disabled" from="GhostObjectList/RoomLightGhostObject3" to="GhostObjectList/RoomLightGhostObject3/RoomLight" method="_on_ghost_disabled_signal"]
+[connection signal="on_ghost_enabled" from="GhostObjectList/RoomLightGhostObject3" to="GhostObjectList/RoomLightGhostObject3/RoomLight" method="_on_ghost_enabled_signal"]
+[connection signal="on_ghost_disabled" from="GhostObjectList/RoomLightGhostObject4" to="GhostObjectList/RoomLightGhostObject4/RoomLight" method="_on_ghost_disabled_signal"]
+[connection signal="on_ghost_enabled" from="GhostObjectList/RoomLightGhostObject4" to="GhostObjectList/RoomLightGhostObject4/RoomLight" method="_on_ghost_enabled_signal"]
