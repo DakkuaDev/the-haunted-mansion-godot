@@ -1,12 +1,14 @@
 extends Control
 
 @export var streess_bar_max_value : int = 100
-@export var process_stress_time : int = 1
+@export var process_stress_time : float = 1
 
 var texture_progress_bar : TextureProgressBar = null
 
 var actual_stress_value : int = 0
 var timer : Timer = null
+
+signal on_time_over
 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,6 +33,7 @@ func _process_stress():
 	else:
 		print("GAME OVER")
 		timer.stop()
+		on_time_over.emit()
 		
 func set_actual_stress(value):
 	actual_stress_value += value

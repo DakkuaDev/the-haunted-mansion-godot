@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcxy1fncxdox4"]
+[gd_scene load_steps=13 format=3 uid="uid://bcxy1fncxdox4"]
 
+[ext_resource type="PackedScene" uid="uid://ce1xpx1exm4oe" path="res://Scene/Logic/MenuSystem.tscn" id="1_f1muy"]
 [ext_resource type="PackedScene" uid="uid://dy6q64ito5wbx" path="res://Scene/Logic/Player.tscn" id="1_sxdin"]
 [ext_resource type="AudioStream" uid="uid://c0ext4n8sw2uu" path="res://Audio/Sound/power-on-39172.mp3" id="2_1wns3"]
 [ext_resource type="PackedScene" uid="uid://b6htw018k26cx" path="res://Scene/Logic/Door.tscn" id="2_sbbww"]
@@ -16,7 +17,10 @@
 
 [node name="main" type="Node3D"]
 
+[node name="Menu" parent="." instance=ExtResource("1_f1muy")]
+
 [node name="StressBar" parent="." instance=ExtResource("9_31duq")]
+process_stress_time = 0.1
 
 [node name="ElectricalSupply" parent="." instance=ExtResource("7_gno6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94035, -6.92972, 0)
@@ -118,6 +122,7 @@ mesh = SubResource("BoxMesh_287he")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.7174, 0)
 
+[connection signal="on_time_over" from="StressBar" to="Menu" method="on_game_over_menu" binds= [true]]
 [connection signal="body_entered" from="ElectricalSupply" to="ElectricalSupply" method="_on_body_entered"]
 [connection signal="body_exited" from="ElectricalSupply" to="ElectricalSupply" method="_on_body_exited"]
 [connection signal="on_add_stress" from="GhostObjectList/GhostObject" to="StressBar" method="set_actual_stress"]
