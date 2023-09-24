@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds8va3hk54tbd"]
+
+[ext_resource type="Script" path="res://Script/StressBarController.gd" id="1_lmtul"]
+[ext_resource type="Texture2D" uid="uid://cjev4jkfig7hx" path="res://Art/UI/stress_bar_demo_texture.png" id="2_vplph"]
+
+[node name="StressBar" type="Control"]
+layout_mode = 3
+anchor_right = 0.852
+anchor_bottom = 0.868
+offset_right = 39.4959
+offset_bottom = 44.536
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lmtul")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_direction = 1
+layout_mode = 0
+offset_left = 69.0
+offset_top = 57.0
+offset_right = 461.0
+offset_bottom = 91.0
+value = 100.0
+texture_progress = ExtResource("2_vplph")

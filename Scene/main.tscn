@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcxy1fncxdox4"]
+[gd_scene load_steps=12 format=3 uid="uid://bcxy1fncxdox4"]
 
 [ext_resource type="PackedScene" uid="uid://dy6q64ito5wbx" path="res://Scene/Logic/Player.tscn" id="1_sxdin"]
 [ext_resource type="AudioStream" uid="uid://c0ext4n8sw2uu" path="res://Audio/Sound/power-on-39172.mp3" id="2_1wns3"]
@@ -8,12 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://b5jd5q6fnw822" path="res://Scene/Logic/RoomLight.tscn" id="5_73jsi"]
 [ext_resource type="AudioStream" uid="uid://p8hbq1w5vd27" path="res://Audio/Sound/emergency-alarm-with-reverb-29431.mp3" id="5_bj6kc"]
 [ext_resource type="PackedScene" uid="uid://bkr411n03e27l" path="res://Scene/Logic/ElectricalSupply.tscn" id="7_gno6k"]
+[ext_resource type="PackedScene" uid="uid://ds8va3hk54tbd" path="res://Scene/Logic/StressBar.tscn" id="9_31duq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ouq3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_287he"]
 
 [node name="main" type="Node3D"]
+
+[node name="StressBar" parent="." instance=ExtResource("9_31duq")]
 
 [node name="ElectricalSupply" parent="." instance=ExtResource("7_gno6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94035, -6.92972, 0)
@@ -27,6 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.949025, 0)
 
 [node name="GhostObject" parent="GhostObjectList" node_paths=PackedStringArray("ghost_dependency") instance=ExtResource("3_b66nd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4036, -1.23914, 0)
+stress_increase = 2
 enabled_sound = ExtResource("5_bj6kc")
 ghost_dependency = NodePath("../RoomLightGhostObject")
 
@@ -116,6 +120,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.7174, 0)
 
 [connection signal="body_entered" from="ElectricalSupply" to="ElectricalSupply" method="_on_body_entered"]
 [connection signal="body_exited" from="ElectricalSupply" to="ElectricalSupply" method="_on_body_exited"]
+[connection signal="on_add_stress" from="GhostObjectList/GhostObject" to="StressBar" method="set_actual_stress"]
 [connection signal="on_ghost_disabled" from="GhostObjectList/RoomLightGhostObject" to="GhostObjectList/RoomLightGhostObject/RoomLight" method="_on_ghost_disabled_signal"]
 [connection signal="on_ghost_enabled" from="GhostObjectList/RoomLightGhostObject" to="GhostObjectList/RoomLightGhostObject/RoomLight" method="_on_ghost_enabled_signal"]
 [connection signal="on_ghost_disabled" from="GhostObjectList/RoomLightGhostObject2" to="GhostObjectList/RoomLightGhostObject2/RoomLight" method="_on_ghost_disabled_signal"]

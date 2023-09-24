@@ -5,6 +5,7 @@ var id : int # 0 is the default value
 #@export var enabled_probability : int = 100
 @export var enabled_timer_seconds = 10
 @export var initial_ghost_state = 0
+@export var stress_increase = 0
 @export var label_text : String = "default text"
 @export var enabled_sound : AudioStream = null
 @export var ghost_dependency : Node3D = null
@@ -26,6 +27,7 @@ var player : Node3D = null
 
 signal on_ghost_enabled
 signal on_ghost_disabled
+signal on_add_stress(int)
 
 func _ready():
 	information_label = get_node("Label3D")
@@ -108,6 +110,7 @@ func _on_enabled_object():
 		obj_anim.play("on_enabled")
 		
 		on_ghost_enabled.emit()
+		on_add_stress.emit(stress_increase)
 	
 func _on_interact_object():
 	if(ghost_obj_state == 1):
@@ -120,6 +123,7 @@ func _on_interact_object():
 		enabled_sound_player.stop()
 		
 		on_ghost_disabled.emit()
+		on_add_stress.emit(stress_increase * -1)
 	
 	
 ## events
