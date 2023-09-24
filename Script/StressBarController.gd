@@ -38,4 +38,3 @@ func _process_stress():
 func set_actual_stress(value):
 	actual_stress_value += value
 
-
