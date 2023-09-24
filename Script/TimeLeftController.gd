@@ -1,6 +1,6 @@
 extends Control
 
-@export var initial_time_left : int = 20   
+@export var initial_time_left : int = 60
 var time_left : int = initial_time_left  
 var timer : Timer
 var text_edit  : TextEdit = null

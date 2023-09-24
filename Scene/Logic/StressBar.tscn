@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds8va3hk54tbd"]
+[gd_scene load_steps=5 format=3 uid="uid://ds8va3hk54tbd"]
 
 [ext_resource type="Script" path="res://Script/StressBarController.gd" id="1_lmtul"]
-[ext_resource type="Texture2D" uid="uid://cjev4jkfig7hx" path="res://Art/UI/stress_bar_demo_texture.png" id="2_vplph"]
+[ext_resource type="Texture2D" uid="uid://dgfg12ggs6vju" path="res://Art/Sprite/UI/StressBar/StressBar3.png" id="2_bxtp5"]
+[ext_resource type="Texture2D" uid="uid://ca7p4dfq1m3k7" path="res://Art/Sprite/UI/StressBar/StressBar1.png" id="3_pdxr4"]
+[ext_resource type="Texture2D" uid="uid://c2r2pytiea2yj" path="res://Art/Sprite/UI/StressBar/StressBar2.png" id="4_urum2"]
 
 [node name="StressBar" type="Control"]
 layout_mode = 3
@@ -21,4 +23,7 @@ offset_top = 57.0
 offset_right = 461.0
 offset_bottom = 91.0
 value = 100.0
-texture_progress = ExtResource("2_vplph")
+texture_under = ExtResource("2_bxtp5")
+texture_over = ExtResource("3_pdxr4")
+texture_progress = ExtResource("4_urum2")
+tint_under = Color(0.976471, 0.976471, 0.976471, 1)

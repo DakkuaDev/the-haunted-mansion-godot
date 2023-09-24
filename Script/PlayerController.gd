@@ -43,21 +43,11 @@ func _physics_process(delta):
 	if(direction.x < 0):
 		animated_sprite.play("walk")
 		animated_sprite.flip_h = true
-		is_going_right = false
-		
-		if(is_going_left == false):
-			is_going_left = true
-			spot_light.rotate_y(-90)
 			
 	else: 
 		if (direction.x > 0):
 			animated_sprite.play("walk")
 			animated_sprite.flip_h = false
-			is_going_left = false
-			
-			if(is_going_right == false):
-				is_going_right = true
-				spot_light.rotate_y(90)
 
 	move_and_slide()
 	

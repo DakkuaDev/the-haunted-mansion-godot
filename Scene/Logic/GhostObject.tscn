@@ -31,8 +31,10 @@ animations = [{
 }]
 
 [node name="GhostObject" type="Area3D"]
+transform = Transform3D(6.57215, 0, 0, 0, 6.57215, 0, 0, 0, 6.57215, 0, 0, 0)
 script = ExtResource("1_tr70e")
 enabled_timer_seconds = 5
+label_text = "Interactuar (A)"
 debug = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -42,7 +44,8 @@ shape = SubResource("BoxShape3D_kngny")
 mesh = SubResource("BoxMesh_17s5u")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12668, 0.986838, 0)
+transform = Transform3D(4.62563, 0, 0, 0, 4.62563, 0, 0, 0, 4.62563, 3.74158, 1.7916, -0.144987)
+text = "default text"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 sprite_frames = SubResource("SpriteFrames_11vgm")

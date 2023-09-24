@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dor7b1nr7dhxp" path="res://Art/UI/main-menu-screen.jpg" id="2_51n6c"]
 [ext_resource type="Texture2D" uid="uid://qas8m2u1mht6" path="res://Art/UI/win-screen.jpg" id="3_1nmpm"]
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("game_over_menu", "win_menu", "main_menu")]
+[node name="Menu" type="Control" node_paths=PackedStringArray("game_over_menu", "win_menu", "main_menu", "pause_menu")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -17,27 +17,49 @@ script = ExtResource("1_ec24g")
 game_over_menu = NodePath("GameOver")
 win_menu = NodePath("Win")
 main_menu = NodePath("MainMenu")
+pause_menu = NodePath("Pause")
 
 [node name="MainMenu" type="TextureRect" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.52549)
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_51n6c")
+
+[node name="Pause" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.52549)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_51n6c")
 
 [node name="GameOver" type="TextureRect" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.52549)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_px1ot")
 
 [node name="Win" type="TextureRect" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.52549)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_1nmpm")
+metadata/_edit_use_anchors_ = true

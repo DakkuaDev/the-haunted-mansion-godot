@@ -5,7 +5,7 @@ var id : int # 0 is the default value
 #@export var enabled_probability : int = 100
 @export var enabled_timer_seconds = 10
 @export var initial_ghost_state = 0
-@export var stress_increase = 0
+@export var stress_increase = 1
 @export var label_text : String = "default text"
 @export var enabled_sound : AudioStream = null
 @export var ghost_dependency : Node3D = null
@@ -119,6 +119,7 @@ func _on_interact_object():
 	
 		disabled_sound_player.play()
 		obj_anim.play("on_disabled")
+		information_label.text = ""
 	
 		enabled_sound_player.stop()
 		
