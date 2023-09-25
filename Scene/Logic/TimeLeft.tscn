@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw33n68cyyi0n"]
+[gd_scene load_steps=2 format=3 uid="uid://bp7wsbqr7ie5u"]
 
 [ext_resource type="Script" path="res://Script/TimeLeftController.gd" id="1_kq6h2"]
 
@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kq6h2")
+initial_time_left = 200
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 60.0

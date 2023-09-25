@@ -12,7 +12,7 @@ albedo_color = Color(0.0627451, 1, 1, 0.568627)
 material = SubResource("StandardMaterial3D_e7b66")
 
 [node name="Door" type="Area3D"]
-transform = Transform3D(4.00336, 0, 0, 0, 4.00336, 0, 0, 0, 4.00336, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_00m2b")
 previous_door_label = "Subir (Arriba)"
 next_door_label = "Bajar (Abajo)"
@@ -25,7 +25,7 @@ shape = SubResource("BoxShape3D_kngny")
 mesh = SubResource("BoxMesh_kjmdm")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(4.62563, 0, 0, 0, 4.62563, 0, 0, 0, 4.62563, 3.74158, 1.7916, -0.144987)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.24158, 1.7916, -0.144987)
 text = "default text"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
