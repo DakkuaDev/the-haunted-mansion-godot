@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b60alnbnici71"]
+
+[ext_resource type="Texture2D" uid="uid://0absiyu5bpd3" path="res://Art/Texture/Techo.png" id="1_v446m"]
+
+[resource]
+shading_mode = 0
+diffuse_mode = 3
+albedo_texture = ExtResource("1_v446m")
