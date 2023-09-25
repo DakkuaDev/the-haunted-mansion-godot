@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce1xpx1exm4oe"]
+
+[ext_resource type="Script" path="res://Script/MenuSystem.gd" id="1_ec24g"]
+[ext_resource type="Texture2D" uid="uid://c5m2tvuuudl2m" path="res://Art/Screen/how-to-play.png" id="2_vqu2s"]
+[ext_resource type="Texture2D" uid="uid://ce1aytsygxlcu" path="res://Art/Screen/pause-constrols.png" id="3_yhn7r"]
+[ext_resource type="Texture2D" uid="uid://c8i05a86eehsb" path="res://Art/Screen/game-over-screen-new.jpg" id="4_uvm3i"]
+[ext_resource type="Texture2D" uid="uid://ltnm1luj4kk3" path="res://Art/Screen/win-screen-new.jpg" id="5_eieql"]
+
+[node name="Menu" type="Control" node_paths=PackedStringArray("game_over_menu", "win_menu", "main_menu", "pause_menu")]
+process_mode = 3
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ec24g")
+game_over_menu = NodePath("GameOver")
+win_menu = NodePath("Win")
+main_menu = NodePath("MainMenu")
+pause_menu = NodePath("Pause")
+
+[node name="MainMenu" type="TextureRect" parent="."]
+visible = false
+top_level = true
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vqu2s")
+
+[node name="Pause" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.52549)
+top_level = true
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_yhn7r")
+
+[node name="GameOver" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.52549)
+self_modulate = Color(1, 1, 1, 0.941176)
+top_level = true
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_uvm3i")
+
+[node name="Win" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.52549)
+self_modulate = Color(1, 1, 1, 0.941176)
+top_level = true
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_eieql")
+metadata/_edit_use_anchors_ = true

@@ -1,72 +1,113 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcxy1fncxdox4"]
+[gd_scene load_steps=17 format=3 uid="uid://bcxy1fncxdox4"]
 
+[ext_resource type="PackedScene" uid="uid://ce1xpx1exm4oe" path="res://Scene/Logic/MenuSystem.tscn" id="1_f1muy"]
 [ext_resource type="PackedScene" uid="uid://dy6q64ito5wbx" path="res://Scene/Logic/Player.tscn" id="1_sxdin"]
+[ext_resource type="AudioStream" uid="uid://c0ext4n8sw2uu" path="res://Audio/Sound/power-on-39172.mp3" id="2_1wns3"]
 [ext_resource type="PackedScene" uid="uid://b6htw018k26cx" path="res://Scene/Logic/Door.tscn" id="2_sbbww"]
-[ext_resource type="Script" path="res://Script/DoorController.gd" id="3_5chcc"]
+[ext_resource type="PackedScene" uid="uid://x8rpdfkkg3hw" path="res://Scene/Logic/GhostObject.tscn" id="3_b66nd"]
+[ext_resource type="PackedScene" uid="uid://cw33n68cyyi0n" path="res://Scene/Logic/TimeLeft.tscn" id="3_ythrg"]
+[ext_resource type="AudioStream" uid="uid://0y7ko1afqjaw" path="res://Audio/Sound/light-switch-81967.mp3" id="4_n6xhb"]
+[ext_resource type="PackedScene" uid="uid://b5jd5q6fnw822" path="res://Scene/Logic/RoomLight.tscn" id="5_73jsi"]
+[ext_resource type="PackedScene" uid="uid://bkr411n03e27l" path="res://Scene/Logic/ElectricalSupply.tscn" id="7_gno6k"]
+[ext_resource type="PackedScene" uid="uid://ds8va3hk54tbd" path="res://Scene/Logic/StressBar.tscn" id="9_31duq"]
+[ext_resource type="PackedScene" uid="uid://8mrjfjet5m3p" path="res://Scene/Logic/GhostObject/Blender.tscn" id="11_b66y6"]
+[ext_resource type="PackedScene" uid="uid://cj0vgrnbo0kcn" path="res://Scene/Logic/GhostObject/Guitar.tscn" id="12_017un"]
+[ext_resource type="PackedScene" uid="uid://3r0h43wfwp6c" path="res://Scene/Logic/BackgroundMusic.tscn" id="13_siv1l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ouq3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_287he"]
 
+[sub_resource type="Environment" id="Environment_b0sp1"]
+background_mode = 1
+background_energy_multiplier = 0.4
+ambient_light_color = Color(0.611765, 0.407843, 0.215686, 1)
+fog_light_energy = 0.1
+volumetric_fog_enabled = true
+
 [node name="main" type="Node3D"]
+
+[node name="Menu" parent="." instance=ExtResource("1_f1muy")]
+top_level = true
+
+[node name="StressBar" parent="." instance=ExtResource("9_31duq")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="TimeLeft" parent="." instance=ExtResource("3_ythrg")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = -208.0
+offset_top = 37.0
+offset_right = -208.0
+offset_bottom = 37.0
+grow_horizontal = 0
+grow_vertical = 1
+
+[node name="ElectricalSupply" parent="." instance=ExtResource("7_gno6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40592, 5.93296, 0)
+max_light_switched_on = 3
+turn_on_sound = ExtResource("2_1wns3")
 
 [node name="Player" parent="." instance=ExtResource("1_sxdin")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.949025, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="GhostObjectList" type="Node3D" parent="."]
+
+[node name="RoomLightGhostObject" parent="GhostObjectList" instance=ExtResource("3_b66nd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7927, -1.20997, 0.0321703)
+enabled_timer_seconds = 10
+initial_ghost_state = 1
+enabled_sound = ExtResource("4_n6xhb")
+
+[node name="RoomLight" parent="GhostObjectList/RoomLightGhostObject" instance=ExtResource("5_73jsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0679746, 2.95411, 0.00907516)
+
+[node name="GhostObject" parent="GhostObjectList" node_paths=PackedStringArray("ghost_dependency") instance=ExtResource("11_b66y6")]
+transform = Transform3D(1.145, 0, 0, 0, 1.145, 0, 0, 0, 1.145, -8.59352, -1.0206, 0.066906)
+ghost_dependency = NodePath("../RoomLightGhostObject")
+
+[node name="GhostObject2" parent="GhostObjectList" node_paths=PackedStringArray("ghost_dependency") instance=ExtResource("12_017un")]
+transform = Transform3D(1.087, 0, 0, 0, 1.087, 0, 0, 0, 1.087, -13.3667, 0, 0)
+ghost_dependency = NodePath("../RoomLightGhostObject")
+
+[node name="DoorList" type="Node3D" parent="."]
+
+[node name="Door" parent="DoorList" node_paths=PackedStringArray("previous_door") instance=ExtResource("2_sbbww")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3711, -1.26012, 0)
+previous_door = NodePath("../Door(1)")
+
+[node name="Door(1)" parent="DoorList" node_paths=PackedStringArray("next_door") instance=ExtResource("2_sbbww")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2116, 5.98746, 0)
+next_door = NodePath("../Door")
+
+[node name="Scenario" type="StaticBody3D" parent="."]
 transform = Transform3D(11.2302, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.78876, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario"]
+transform = Transform3D(2.64002, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.78876, 0)
 shape = SubResource("BoxShape3D_4ouq3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
-mesh = SubResource("BoxMesh_287he")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(11.2302, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.92469, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.78876, 0)
-shape = SubResource("BoxShape3D_4ouq3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2/CollisionShape3D"]
-mesh = SubResource("BoxMesh_287he")
-
-[node name="StaticBody3D3" type="StaticBody3D" parent="."]
-transform = Transform3D(11.2302, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.17843, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.78876, 0)
-shape = SubResource("BoxShape3D_4ouq3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/CollisionShape3D"]
 mesh = SubResource("BoxMesh_287he")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.7174, 0)
 
-[node name="Door" parent="." node_paths=PackedStringArray("previous_door", "next_door") instance=ExtResource("2_sbbww")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9997, -1.26446, 0)
-script = ExtResource("3_5chcc")
-previous_door = NodePath("../Door2")
-next_door = NodePath("../Door3")
+[node name="BackgroundMusic" parent="." instance=ExtResource("13_siv1l")]
 
-[node name="Door2" parent="." node_paths=PackedStringArray("next_door") instance=ExtResource("2_sbbww")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.88826, 4.57985, 0)
-script = ExtResource("3_5chcc")
-id = 1
-next_door = NodePath("../Door")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_b0sp1")
 
-[node name="Door3" parent="." node_paths=PackedStringArray("previous_door") instance=ExtResource("2_sbbww")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.156595, -7.46639, 0)
-script = ExtResource("3_5chcc")
-id = 2
-previous_door = NodePath("../Door")
-
-[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
-[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
-[connection signal="body_entered" from="Door2" to="Door2" method="_on_body_entered"]
-[connection signal="body_exited" from="Door2" to="Door2" method="_on_body_exited"]
-[connection signal="body_entered" from="Door3" to="Door3" method="_on_body_entered"]
-[connection signal="body_exited" from="Door3" to="Door3" method="_on_body_exited"]
+[connection signal="on_time_over" from="StressBar" to="Menu" method="on_game_over_menu"]
+[connection signal="on_time_out" from="TimeLeft" to="Menu" method="on_win_menu" binds= [true]]
+[connection signal="body_entered" from="ElectricalSupply" to="ElectricalSupply" method="_on_body_entered"]
+[connection signal="body_exited" from="ElectricalSupply" to="ElectricalSupply" method="_on_body_exited"]
+[connection signal="on_ghost_disabled" from="GhostObjectList/RoomLightGhostObject" to="GhostObjectList/RoomLightGhostObject/RoomLight" method="_on_ghost_disabled_signal"]
+[connection signal="on_ghost_enabled" from="GhostObjectList/RoomLightGhostObject" to="GhostObjectList/RoomLightGhostObject/RoomLight" method="_on_ghost_enabled_signal"]
+[connection signal="on_add_stress" from="GhostObjectList/GhostObject" to="StressBar" method="set_actual_stress"]
+[connection signal="on_add_stress" from="GhostObjectList/GhostObject2" to="StressBar" method="set_actual_stress"]

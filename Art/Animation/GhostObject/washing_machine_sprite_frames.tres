@@ -1,0 +1,28 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://brqwymm2wwsex"]
+
+[ext_resource type="Texture2D" uid="uid://ctinl6qkei6n4" path="res://Art/Sprite/GhostObject/Lavadora.png" id="1_pu6w0"]
+[ext_resource type="Texture2D" uid="uid://ddapytcwgmf3r" path="res://Art/Sprite/GhostObject/LavadoraParticulas.png" id="2_wowpo"]
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pu6w0")
+}],
+"loop": true,
+"name": &"on_disabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wowpo")
+}],
+"loop": true,
+"name": &"on_enabled",
+"speed": 5.0
+}]

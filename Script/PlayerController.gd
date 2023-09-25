@@ -1,11 +1,20 @@
 extends CharacterBody3D
 
+var animated_sprite : AnimatedSprite3D = null
+var spot_light : SpotLight3D = null
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+var is_going_right = false
+var is_going_left = false
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+func _ready():
+	animated_sprite = get_node("AnimatedSprite3D")
+	animated_sprite.play("idle")
 
 
 func _physics_process(delta):
@@ -23,8 +32,21 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+		
+	## sprite animation
+	if(direction.x == 0):
+		animated_sprite.play("idle")
+	
+	if(direction.x < 0):
+		animated_sprite.play("walk")
+		animated_sprite.flip_h = true
+			
+	else: 
+		if (direction.x > 0):
+			animated_sprite.play("walk")
+			animated_sprite.flip_h = false
 
 	move_and_slide()
-
 	
 	

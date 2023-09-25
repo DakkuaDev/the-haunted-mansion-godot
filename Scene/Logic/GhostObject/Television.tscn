@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqjy7qlfnlih"]
+
+[ext_resource type="PackedScene" uid="uid://x8rpdfkkg3hw" path="res://Scene/Logic/GhostObject.tscn" id="1_tguft"]
+[ext_resource type="AudioStream" uid="uid://bxtjrg4803hak" path="res://Audio/Sound/GhostObject/tv-sound.mp3" id="2_fvjg4"]
+[ext_resource type="SpriteFrames" uid="uid://bokw1i2d1l5ee" path="res://Art/Animation/GhostObject/television_sprite_frames.tres" id="2_wu5ny"]
+
+[node name="GhostObject" instance=ExtResource("1_tguft")]
+enabled_timer_seconds = 12
+stress_increase = 4
+label_text = "Interactuar "
+enabled_sound = ExtResource("2_fvjg4")
+debug = false
+
+[node name="MeshInstance3D" parent="CollisionShape3D" index="0"]
+visible = false
+
+[node name="Label3D" parent="." index="1"]
+transform = Transform3D(4.62563, 0, 0, 0, 4.62563, 0, 0, 0, 4.62563, 4.56029, 1.96284, -0.144987)
+
+[node name="AnimatedSprite3D" parent="." index="4"]
+sprite_frames = ExtResource("2_wu5ny")
+animation = &"on_disabled"
