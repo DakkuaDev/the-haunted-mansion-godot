@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dehjj3q2qten4"]
+
+[ext_resource type="PackedScene" uid="uid://l5yim6g5npta" path="res://Scene/Logic/GhostObject.tscn" id="1_qgxbp"]
+[ext_resource type="SpriteFrames" uid="uid://dvluu0qo5ceoe" path="res://Art/Animation/GhostObject/toilet_sprite_frames.tres" id="2_arvnh"]
+[ext_resource type="AudioStream" uid="uid://04ua3s6aug4e" path="res://Audio/Sound/GhostObject/toilet-sound.mp3" id="2_fu4d4"]
+
+[node name="GhostObject" instance=ExtResource("1_qgxbp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+enabled_timer_seconds = 8
+stress_increase = 0.1
+label_text = "Interactuar "
+enabled_sound = ExtResource("2_fu4d4")
+debug = false
+
+[node name="MeshInstance3D" parent="CollisionShape3D" index="0"]
+visible = false
+
+[node name="Label3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14158, 3.3916, -0.144987)
+
+[node name="AnimatedSprite3D" parent="." index="4"]
+sprite_frames = ExtResource("2_arvnh")

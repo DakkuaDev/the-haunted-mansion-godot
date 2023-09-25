@@ -1,0 +1,28 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://bswkau6400uml"]
+
+[ext_resource type="Texture2D" uid="uid://dtvecejvwdf2g" path="res://Art/Sprite/GhostObject/BatidoraEncendida.png" id="1_uaagk"]
+[ext_resource type="Texture2D" uid="uid://dgdy2l2y5bnup" path="res://Art/Sprite/GhostObject/BatidoraParticulas.png" id="2_fo4cq"]
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uaagk")
+}],
+"loop": true,
+"name": &"on_disabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fo4cq")
+}],
+"loop": true,
+"name": &"on_enabled",
+"speed": 5.0
+}]

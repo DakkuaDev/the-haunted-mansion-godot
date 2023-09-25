@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://baes1h0bmoamn"
+path="res://.godot/imported/SueloBano.obj-5f15d63d0acfa690ed997c86123c9d87.mesh"
+
+[deps]
+
+files=["res://.godot/imported/SueloBano.obj-5f15d63d0acfa690ed997c86123c9d87.mesh"]
+
+source_file="res://Art/Mesh/SueloBano.obj"
+dest_files=["res://.godot/imported/SueloBano.obj-5f15d63d0acfa690ed997c86123c9d87.mesh", "res://.godot/imported/SueloBano.obj-5f15d63d0acfa690ed997c86123c9d87.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://8mrjfjet5m3p"]
+
+[ext_resource type="Script" path="res://Script/GhostObjectController.gd" id="1_giw8h"]
+[ext_resource type="AudioStream" uid="uid://svg6clk33brv" path="res://Audio/Sound/beep-6-96243.mp3" id="2_cg5ly"]
+[ext_resource type="AudioStream" uid="uid://dmr540ccn8e70" path="res://Audio/Sound/GhostObject/blender-sound.mp3" id="2_gjxu3"]
+[ext_resource type="SpriteFrames" uid="uid://bswkau6400uml" path="res://Art/Animation/GhostObject/blender_sprite_frames.tres" id="3_mx28e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kngny"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnrif"]
+transparency = 1
+albedo_color = Color(1, 0.180392, 1, 0.709804)
+
+[sub_resource type="BoxMesh" id="BoxMesh_17s5u"]
+material = SubResource("StandardMaterial3D_tnrif")
+
+[node name="GhostObject" type="Area3D"]
+script = ExtResource("1_giw8h")
+enabled_timer_seconds = 5
+stress_increase = 0.1
+label_text = "Interactuar "
+enabled_sound = ExtResource("2_gjxu3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 11.55, 0, 0, 0)
+shape = SubResource("BoxShape3D_kngny")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+visible = false
+mesh = SubResource("BoxMesh_17s5u")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(4.62563, 0, 0, 0, 4.62563, 0, 0, 0, 4.62563, -0.25842, 1.7916, -0.144987)
+text = "default text"
+
+[node name="AudioStreamPlayer3D_Enabled" type="AudioStreamPlayer3D" parent="."]
+
+[node name="AudioStreamPlayer3D_Disabled" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_cg5ly")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+sprite_frames = ExtResource("3_mx28e")
+animation = &"on_disabled"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="." to="." method="_on_body_exited" flags=18]

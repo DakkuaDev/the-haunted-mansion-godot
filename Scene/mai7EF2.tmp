@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcxy1fncxdox4"]
+
+[ext_resource type="PackedScene" uid="uid://dy6q64ito5wbx" path="res://Scene/Logic/Player.tscn" id="1_sxdin"]
+[ext_resource type="PackedScene" uid="uid://b6htw018k26cx" path="res://Scene/Logic/Door.tscn" id="2_sbbww"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ouq3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_287he"]
+
+[node name="main" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_sxdin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.949025, 0)
+
+[node name="Door" parent="." node_paths=PackedStringArray("previous_door", "next_door") instance=ExtResource("2_sbbww")]
+previous_door = NodePath("../Door2")
+next_door = NodePath("../Door3")
+
+[node name="Door2" parent="." node_paths=PackedStringArray("next_door") instance=ExtResource("2_sbbww")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.69042, 4.54974, 0)
+next_door = NodePath("../Door")
+
+[node name="Door3" parent="." node_paths=PackedStringArray("previous_door") instance=ExtResource("2_sbbww")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0547535, -7.20191, 0)
+previous_door = NodePath("../Door")
+
+[node name="Scenario" type="StaticBody3D" parent="."]
+transform = Transform3D(11.2302, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.78876, 0)
+shape = SubResource("BoxShape3D_4ouq3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/CollisionShape3D"]
+mesh = SubResource("BoxMesh_287he")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.92469, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.78876, 0)
+shape = SubResource("BoxShape3D_4ouq3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_287he")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Scenario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.17843, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenario/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.78876, 0)
+shape = SubResource("BoxShape3D_4ouq3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scenario/StaticBody3D2/CollisionShape3D"]
+mesh = SubResource("BoxMesh_287he")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.7174, 0)

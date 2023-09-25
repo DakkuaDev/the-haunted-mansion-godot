@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://drcqsofrx23n1"]
+
+[ext_resource type="Texture2D" uid="uid://37ag8dyevghy" path="res://Art/Texture/ObjetosMadera.png" id="1_c8nwb"]
+
+[resource]
+diffuse_mode = 3
+albedo_texture = ExtResource("1_c8nwb")

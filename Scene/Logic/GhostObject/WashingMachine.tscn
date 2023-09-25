@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctograftune8e"]
+
+[ext_resource type="PackedScene" uid="uid://l5yim6g5npta" path="res://Scene/Logic/GhostObject.tscn" id="1_wdd6k"]
+[ext_resource type="AudioStream" uid="uid://clsuksuk1fv5k" path="res://Audio/Sound/GhostObject/washing-machine-sound.mp3" id="2_dxfqq"]
+[ext_resource type="SpriteFrames" uid="uid://brqwymm2wwsex" path="res://Art/Animation/GhostObject/washing_machine_sprite_frames.tres" id="2_ng25m"]
+
+[node name="GhostObject" instance=ExtResource("1_wdd6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+enabled_timer_seconds = 12
+stress_increase = 0.1
+label_text = "Interactuar "
+enabled_sound = ExtResource("2_dxfqq")
+debug = false
+
+[node name="MeshInstance3D" parent="CollisionShape3D" index="0"]
+visible = false
+
+[node name="Label3D" parent="." index="1"]
+transform = Transform3D(4.62563, 0, 0, 0, 4.62563, 0, 0, 0, 4.62563, -0.19911, 3.0767, -0.144987)
+
+[node name="AnimatedSprite3D" parent="." index="4"]
+sprite_frames = ExtResource("2_ng25m")

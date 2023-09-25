@@ -1,0 +1,28 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://bokw1i2d1l5ee"]
+
+[ext_resource type="Texture2D" uid="uid://me5fspuj6jd3" path="res://Art/Sprite/GhostObject/Tele.png" id="1_qdn8s"]
+[ext_resource type="Texture2D" uid="uid://cqxjo75nc8su7" path="res://Art/Sprite/GhostObject/TeleParticulas.png" id="2_v2kc3"]
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qdn8s")
+}],
+"loop": true,
+"name": &"on_disabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v2kc3")
+}],
+"loop": true,
+"name": &"on_enabled",
+"speed": 5.0
+}]

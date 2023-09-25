@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxw1dmxrwslg1"]
+
+[ext_resource type="Script" path="res://Script/LightController.gd" id="1_hdovd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mw7h1"]
+albedo_color = Color(1, 1, 0.0784314, 1)
+emission_enabled = true
+emission = Color(0.894118, 0.764706, 0.431373, 1)
+emission_energy_multiplier = 1.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_lf4tl"]
+material = SubResource("StandardMaterial3D_mw7h1")
+
+[node name="RoomLight" type="OmniLight3D"]
+light_color = Color(1, 0.945098, 0.839216, 1)
+light_energy = 16.0
+script = ExtResource("1_hdovd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_lf4tl")

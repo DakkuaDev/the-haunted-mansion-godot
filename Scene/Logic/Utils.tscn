@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfbdypy1yh3g3"]
+
+[ext_resource type="Script" path="res://Script/ElectricalSupplySystem.gd" id="1_alt8k"]
+
+[node name="ElectricalSupplySystem" type="Node3D"]
+script = ExtResource("1_alt8k")

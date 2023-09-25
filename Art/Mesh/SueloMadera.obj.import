@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dto6w807cgmk1"
+path="res://.godot/imported/SueloMadera.obj-e74d97690a37fa0e2f3041b8d8856ae6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/SueloMadera.obj-e74d97690a37fa0e2f3041b8d8856ae6.mesh"]
+
+source_file="res://Art/Mesh/SueloMadera.obj"
+dest_files=["res://.godot/imported/SueloMadera.obj-e74d97690a37fa0e2f3041b8d8856ae6.mesh", "res://.godot/imported/SueloMadera.obj-e74d97690a37fa0e2f3041b8d8856ae6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

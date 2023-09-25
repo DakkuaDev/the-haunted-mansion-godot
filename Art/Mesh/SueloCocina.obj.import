@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://caeaa5l55ltnx"
+path="res://.godot/imported/SueloCocina.obj-9a898703cf49b090a75dd11dad9313ee.mesh"
+
+[deps]
+
+files=["res://.godot/imported/SueloCocina.obj-9a898703cf49b090a75dd11dad9313ee.mesh"]
+
+source_file="res://Art/Mesh/SueloCocina.obj"
+dest_files=["res://.godot/imported/SueloCocina.obj-9a898703cf49b090a75dd11dad9313ee.mesh", "res://.godot/imported/SueloCocina.obj-9a898703cf49b090a75dd11dad9313ee.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

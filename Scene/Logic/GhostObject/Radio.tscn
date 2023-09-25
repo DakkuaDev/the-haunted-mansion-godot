@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://lrykht5vic2n"]
+
+[ext_resource type="PackedScene" uid="uid://l5yim6g5npta" path="res://Scene/Logic/GhostObject.tscn" id="1_66upq"]
+[ext_resource type="AudioStream" uid="uid://b2x0633snv81k" path="res://Audio/Sound/GhostObject/radio-sound.mp3" id="2_hc2kd"]
+[ext_resource type="SpriteFrames" uid="uid://bvgmq31dvx0js" path="res://Art/Animation/GhostObject/radio_sprite_frames.tres" id="2_ner8i"]
+
+[node name="GhostObject" instance=ExtResource("1_66upq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+stress_increase = 0.1
+label_text = "Interactuar "
+enabled_sound = ExtResource("2_hc2kd")
+
+[node name="MeshInstance3D" parent="CollisionShape3D" index="0"]
+visible = false
+
+[node name="AnimatedSprite3D" parent="." index="4"]
+sprite_frames = ExtResource("2_ner8i")

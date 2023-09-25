@@ -1,0 +1,28 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dvluu0qo5ceoe"]
+
+[ext_resource type="Texture2D" uid="uid://g25saxe5ocx0" path="res://Art/Sprite/GhostObject/Retrete.png" id="1_gj8xq"]
+[ext_resource type="Texture2D" uid="uid://cjm4rwpjkrhj" path="res://Art/Sprite/GhostObject/RetreteParticulas.png" id="2_85cfb"]
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gj8xq")
+}],
+"loop": true,
+"name": &"on_disabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_85cfb")
+}],
+"loop": true,
+"name": &"on_enabled",
+"speed": 5.0
+}]

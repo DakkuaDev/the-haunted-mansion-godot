@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy6q64ito5wbx"]
+
+[ext_resource type="Script" path="res://Script/PlayerController.gd" id="1_yqevr"]
+[ext_resource type="SpriteFrames" uid="uid://7k7obpm6qung" path="res://Art/Animation/Player/player_sprite_frames.tres" id="2_36oo3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2i664"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_42w0i"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_yqevr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.51, 0, 0, 0, 2.51, 0, 0, 0, 2.51, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_2i664")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+visible = false
+mesh = SubResource("CapsuleMesh_42w0i")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.15256)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+sprite_frames = ExtResource("2_36oo3")
+animation = &"idle"
+speed_scale = 2.0
