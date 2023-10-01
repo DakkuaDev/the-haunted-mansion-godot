@@ -15,13 +15,14 @@ albedo_color = Color(1, 0.180392, 1, 0.709804)
 material = SubResource("StandardMaterial3D_tnrif")
 
 [node name="GhostObject" type="Area3D"]
-transform = Transform3D(6.57215, 0, 0, 0, 6.57215, 0, 0, 0, 6.57215, 0, 0, 0)
 script = ExtResource("1_giw8h")
 enabled_timer_seconds = 5
+stress_increase = 0.1
 label_text = "Interactuar "
 enabled_sound = ExtResource("2_gjxu3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 11.55, 0, 0, 0)
 shape = SubResource("BoxShape3D_kngny")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
@@ -29,7 +30,7 @@ visible = false
 mesh = SubResource("BoxMesh_17s5u")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(4.62563, 0, 0, 0, 4.62563, 0, 0, 0, 4.62563, 3.74158, 1.7916, -0.144987)
+transform = Transform3D(4.62563, 0, 0, 0, 4.62563, 0, 0, 0, 4.62563, -0.25842, 1.7916, -0.144987)
 text = "default text"
 
 [node name="AudioStreamPlayer3D_Enabled" type="AudioStreamPlayer3D" parent="."]

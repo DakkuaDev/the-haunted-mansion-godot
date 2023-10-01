@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://x8rpdfkkg3hw"]
+[gd_scene load_steps=7 format=3 uid="uid://l5yim6g5npta"]
 
 [ext_resource type="Script" path="res://Script/GhostObjectController.gd" id="1_tr70e"]
 [ext_resource type="AudioStream" uid="uid://svg6clk33brv" path="res://Audio/Sound/beep-6-96243.mp3" id="3_8gqgv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kngny"]
+size = Vector3(1, 1, 17)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnrif"]
 transparency = 1
@@ -12,11 +13,29 @@ albedo_color = Color(1, 0.180392, 1, 0.709804)
 [sub_resource type="BoxMesh" id="BoxMesh_17s5u"]
 material = SubResource("StandardMaterial3D_tnrif")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6xfk"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"on_disabled",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"on_enabled",
+"speed": 5.0
+}]
+
 [node name="GhostObject" type="Area3D"]
-transform = Transform3D(6.57215, 0, 0, 0, 6.57215, 0, 0, 0, 6.57215, 0, 0, 0)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
 script = ExtResource("1_tr70e")
 enabled_timer_seconds = 5
-label_text = "Interactuar (A)"
+label_text = "Interactuar"
 debug = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -26,7 +45,7 @@ shape = SubResource("BoxShape3D_kngny")
 mesh = SubResource("BoxMesh_17s5u")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(4.62563, 0, 0, 0, 4.62563, 0, 0, 0, 4.62563, 3.74158, 1.7916, -0.144987)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14158, 1.3916, -0.144987)
 text = "default text"
 
 [node name="AudioStreamPlayer3D_Enabled" type="AudioStreamPlayer3D" parent="."]
@@ -35,6 +54,8 @@ text = "default text"
 stream = ExtResource("3_8gqgv")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f6xfk")
+animation = &"on_disabled"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
 [connection signal="body_exited" from="." to="." method="_on_body_exited" flags=18]

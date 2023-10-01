@@ -1,18 +1,18 @@
 [gd_scene load_steps=17 format=3 uid="uid://bcxy1fncxdox4"]
 
-[ext_resource type="PackedScene" uid="uid://ce1xpx1exm4oe" path="res://Scene/Logic/MenuSystem.tscn" id="1_f1muy"]
+[ext_resource type="PackedScene" uid="uid://b32nscvt4ktqq" path="res://Scene/Logic/MenuSystem.tscn" id="1_f1muy"]
 [ext_resource type="PackedScene" uid="uid://dy6q64ito5wbx" path="res://Scene/Logic/Player.tscn" id="1_sxdin"]
 [ext_resource type="AudioStream" uid="uid://c0ext4n8sw2uu" path="res://Audio/Sound/power-on-39172.mp3" id="2_1wns3"]
 [ext_resource type="PackedScene" uid="uid://b6htw018k26cx" path="res://Scene/Logic/Door.tscn" id="2_sbbww"]
-[ext_resource type="PackedScene" uid="uid://x8rpdfkkg3hw" path="res://Scene/Logic/GhostObject.tscn" id="3_b66nd"]
-[ext_resource type="PackedScene" uid="uid://cw33n68cyyi0n" path="res://Scene/Logic/TimeLeft.tscn" id="3_ythrg"]
+[ext_resource type="PackedScene" uid="uid://l5yim6g5npta" path="res://Scene/Logic/GhostObject.tscn" id="3_b66nd"]
+[ext_resource type="PackedScene" uid="uid://bp7wsbqr7ie5u" path="res://Scene/Logic/TimeLeft.tscn" id="3_ythrg"]
 [ext_resource type="AudioStream" uid="uid://0y7ko1afqjaw" path="res://Audio/Sound/light-switch-81967.mp3" id="4_n6xhb"]
-[ext_resource type="PackedScene" uid="uid://b5jd5q6fnw822" path="res://Scene/Logic/RoomLight.tscn" id="5_73jsi"]
-[ext_resource type="PackedScene" uid="uid://bkr411n03e27l" path="res://Scene/Logic/ElectricalSupply.tscn" id="7_gno6k"]
-[ext_resource type="PackedScene" uid="uid://ds8va3hk54tbd" path="res://Scene/Logic/StressBar.tscn" id="9_31duq"]
+[ext_resource type="PackedScene" uid="uid://bxw1dmxrwslg1" path="res://Scene/Logic/RoomLight.tscn" id="5_73jsi"]
+[ext_resource type="PackedScene" path="res://Scene/Logic/ElectricalSupply.tscn" id="7_gno6k"]
+[ext_resource type="PackedScene" path="res://Scene/Logic/StressBar.tscn" id="9_31duq"]
 [ext_resource type="PackedScene" uid="uid://8mrjfjet5m3p" path="res://Scene/Logic/GhostObject/Blender.tscn" id="11_b66y6"]
 [ext_resource type="PackedScene" uid="uid://cj0vgrnbo0kcn" path="res://Scene/Logic/GhostObject/Guitar.tscn" id="12_017un"]
-[ext_resource type="PackedScene" uid="uid://3r0h43wfwp6c" path="res://Scene/Logic/BackgroundMusic.tscn" id="13_siv1l"]
+[ext_resource type="PackedScene" path="res://Scene/Logic/BackgroundMusic.tscn" id="13_siv1l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ouq3"]
 
@@ -73,6 +73,7 @@ ghost_dependency = NodePath("../RoomLightGhostObject")
 
 [node name="GhostObject2" parent="GhostObjectList" node_paths=PackedStringArray("ghost_dependency") instance=ExtResource("12_017un")]
 transform = Transform3D(1.087, 0, 0, 0, 1.087, 0, 0, 0, 1.087, -13.3667, 0, 0)
+stress_increase = 1.0
 ghost_dependency = NodePath("../RoomLightGhostObject")
 
 [node name="DoorList" type="Node3D" parent="."]

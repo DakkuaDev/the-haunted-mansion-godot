@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://fgsimmlqbxdf"]
+
+[ext_resource type="Texture2D" uid="uid://box4llyl5mh13" path="res://Art/Texture/SotanoProps.png" id="1_08suj"]
+
+[resource]
+diffuse_mode = 3
+albedo_texture = ExtResource("1_08suj")

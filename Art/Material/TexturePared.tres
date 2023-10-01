@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dfxux3t1th63p"]
+
+[ext_resource type="Texture2D" uid="uid://byy8h0tdegtma" path="res://Art/Texture/Texture_Pared.png" id="1_vklqc"]
+
+[resource]
+diffuse_mode = 3
+albedo_texture = ExtResource("1_vklqc")

@@ -30,13 +30,13 @@ func _process(delta):
 		print("ui_up")
 		
 		if(player != null):
-			player.transform = previous_door.transform
+			player.position = previous_door.position
 			
 	if Input.is_action_just_pressed("ui_down") && next_door_action == true :
 		print("ui_down")
 		
 		if(player != null):
-			player.transform = next_door.transform
+			player.position = next_door.position
 		
 	
 # Called when the body enters the collision shape.

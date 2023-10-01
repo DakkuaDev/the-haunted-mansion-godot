@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5jd5q6fnw822"]
+[gd_scene load_steps=4 format=3 uid="uid://bxw1dmxrwslg1"]
 
 [ext_resource type="Script" path="res://Script/LightController.gd" id="1_hdovd"]
 
@@ -12,7 +12,10 @@ emission_energy_multiplier = 1.2
 material = SubResource("StandardMaterial3D_mw7h1")
 
 [node name="RoomLight" type="OmniLight3D"]
+light_color = Color(1, 0.945098, 0.839216, 1)
+light_energy = 16.0
 script = ExtResource("1_hdovd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("SphereMesh_lf4tl")

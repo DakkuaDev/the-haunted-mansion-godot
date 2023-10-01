@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dk1cf7gb1f14p"
+path="res://.godot/imported/MarcoPuerta.obj-12f6ca2dfe8645dc42e8f48a6ec41940.mesh"
+
+[deps]
+
+files=["res://.godot/imported/MarcoPuerta.obj-12f6ca2dfe8645dc42e8f48a6ec41940.mesh"]
+
+source_file="res://Art/Mesh/MarcoPuerta.obj"
+dest_files=["res://.godot/imported/MarcoPuerta.obj-12f6ca2dfe8645dc42e8f48a6ec41940.mesh", "res://.godot/imported/MarcoPuerta.obj-12f6ca2dfe8645dc42e8f48a6ec41940.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
