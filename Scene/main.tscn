@@ -114,6 +114,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.7, 7.5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Camera3D"]
 transform = Transform3D(2.62396, 0.0104805, 0.00215383, -0.0104794, 2.62396, -0.00145859, -0.00215972, 0.00145015, 2.62398, 0.0645096, 0.373082, -8.53036)
+visible = false
 mesh = SubResource("QuadMesh_qhkpk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera3D"]
