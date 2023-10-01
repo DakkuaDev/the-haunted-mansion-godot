@@ -35,7 +35,7 @@ texture = ExtResource("2_vqu2s")
 
 [node name="Pause" type="TextureRect" parent="."]
 visible = false
-modulate = Color(1, 1, 1, 0.52549)
+modulate = Color(1, 1, 1, 0.901961)
 top_level = true
 z_index = 100
 layout_mode = 1

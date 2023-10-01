@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://8mrjfjet5m3p"]
+[gd_scene load_steps=9 format=3 uid="uid://8mrjfjet5m3p"]
 
 [ext_resource type="Script" path="res://Script/GhostObjectController.gd" id="1_giw8h"]
 [ext_resource type="AudioStream" uid="uid://svg6clk33brv" path="res://Audio/Sound/beep-6-96243.mp3" id="2_cg5ly"]
 [ext_resource type="AudioStream" uid="uid://dmr540ccn8e70" path="res://Audio/Sound/GhostObject/blender-sound.mp3" id="2_gjxu3"]
 [ext_resource type="SpriteFrames" uid="uid://bswkau6400uml" path="res://Art/Animation/GhostObject/blender_sprite_frames.tres" id="3_mx28e"]
+[ext_resource type="FontFile" uid="uid://ci6kvepb4qbrg" path="res://Font/Barrio-Regular.ttf" id="5_jmnqi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kngny"]
 
@@ -18,7 +19,7 @@ material = SubResource("StandardMaterial3D_tnrif")
 script = ExtResource("1_giw8h")
 enabled_timer_seconds = 5
 stress_increase = 0.1
-label_text = "Interactuar "
+label_text = "interact"
 enabled_sound = ExtResource("2_gjxu3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -29,10 +30,6 @@ shape = SubResource("BoxShape3D_kngny")
 visible = false
 mesh = SubResource("BoxMesh_17s5u")
 
-[node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(4.62563, 0, 0, 0, 4.62563, 0, 0, 0, 4.62563, -0.25842, 1.7916, -0.144987)
-text = "default text"
-
 [node name="AudioStreamPlayer3D_Enabled" type="AudioStreamPlayer3D" parent="."]
 
 [node name="AudioStreamPlayer3D_Disabled" type="AudioStreamPlayer3D" parent="."]
@@ -41,6 +38,13 @@ stream = ExtResource("2_cg5ly")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 sprite_frames = ExtResource("3_mx28e")
 animation = &"on_disabled"
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0219474, 1.85664, -0.144987)
+text = "default text"
+font = ExtResource("5_jmnqi")
+font_size = 65
+outline_size = 10
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
 [connection signal="body_exited" from="." to="." method="_on_body_exited" flags=18]

@@ -4,6 +4,7 @@ extends Node3D
 @export var next_door : Node3D = null
 @export var previous_door_label : String = "default text"
 @export var next_door_label : String = "default text"
+@export var on_door_transition_sound : AudioStreamPlayer3D = null
 @export var debug : bool = false
 
 
@@ -12,6 +13,8 @@ var next_door_action : bool = false
 var previous_door_action : bool = false
 
 var player : Node3D = null
+
+signal on_door_transition
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,13 +33,28 @@ func _process(delta):
 		print("ui_up")
 		
 		if(player != null):
-			player.position = previous_door.position
+			previous_door_action = false
+			
+			on_door_transition.emit()
+			if(on_door_transition_sound != null): on_door_transition_sound.play()
+			
+			on_player_move()
 			
 	if Input.is_action_just_pressed("ui_down") && next_door_action == true :
 		print("ui_down")
 		
 		if(player != null):
-			player.position = next_door.position
+			next_door_action = false
+			
+			on_door_transition.emit()
+			if(on_door_transition_sound != null): on_door_transition_sound.play()
+				
+			on_player_move()
+			
+func on_player_move():
+	await get_tree().create_timer(1.0).timeout
+	player.position = previous_door.position
+	
 		
 	
 # Called when the body enters the collision shape.

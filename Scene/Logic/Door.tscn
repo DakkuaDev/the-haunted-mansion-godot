@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6htw018k26cx"]
+[gd_scene load_steps=7 format=3 uid="uid://b6htw018k26cx"]
 
 [ext_resource type="Script" path="res://Script/DoorController.gd" id="1_00m2b"]
+[ext_resource type="FontFile" uid="uid://ci6kvepb4qbrg" path="res://Font/Barrio-Regular.ttf" id="2_0mpqu"]
+[ext_resource type="AudioStream" uid="uid://qoaybc3i1tdf" path="res://Audio/Sound/walkingdownstairs-31687.wav" id="3_x1xtl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kngny"]
 
@@ -11,11 +13,12 @@ albedo_color = Color(0.0627451, 1, 1, 0.568627)
 [sub_resource type="BoxMesh" id="BoxMesh_kjmdm"]
 material = SubResource("StandardMaterial3D_e7b66")
 
-[node name="Door" type="Area3D"]
+[node name="Door" type="Area3D" node_paths=PackedStringArray("on_door_transition_sound")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_00m2b")
-previous_door_label = "Subir (Arriba)"
-next_door_label = "Bajar (Abajo)"
+previous_door_label = "go up"
+next_door_label = "go down"
+on_door_transition_sound = NodePath("AudioStreamPlayer3D")
 debug = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -25,8 +28,14 @@ shape = SubResource("BoxShape3D_kngny")
 mesh = SubResource("BoxMesh_kjmdm")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.24158, 1.7916, -0.144987)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.792, 0)
 text = "default text"
+font = ExtResource("2_0mpqu")
+font_size = 65
+outline_size = 10
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_x1xtl")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

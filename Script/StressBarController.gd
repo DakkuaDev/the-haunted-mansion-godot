@@ -1,12 +1,12 @@
 extends Control
 
-@export var streess_bar_max_value : int = 100
+@export var streess_bar_max_value : float = 100.0
 @export var process_stress_time : float = 0.1
-@export var stress_decrease : float = 1
+@export var stress_decrease : float = 0.25
 
 var texture_progress_bar : TextureProgressBar = null
 
-var actual_stress_value : int = 0
+var actual_stress_value : float = 0.0
 var timer : Timer = null
 
 signal on_time_over
@@ -18,7 +18,7 @@ func _ready():
 	
 	if(texture_progress_bar != null):
 		texture_progress_bar.max_value = streess_bar_max_value
-		texture_progress_bar.value = 0
+		texture_progress_bar.value = 0.0
 	
 		
 	timer = Timer.new()
@@ -29,13 +29,13 @@ func _ready():
 	timer.start()
 	
 func _process_stress():
-	if(texture_progress_bar.value < 100):
+	if(texture_progress_bar.value < 100.0):
 		texture_progress_bar.value += actual_stress_value - stress_decrease
 	else:
 		print("GAME OVER")
 		timer.stop()
 		on_time_over.emit(true)
 		
-func set_actual_stress(value):
+func set_actual_stress(value : float):
 	actual_stress_value += value
 

@@ -5,8 +5,10 @@ extends OmniLight3D
 var is_down = false;
 
 func _ready():
+	
 	on_turn_off_light()
 	GlobalManager.electrical_supply.connect("on_electrical_turn_off", _on_electrical_supply_turn_off, 0)
+	
 	
 func on_turn_on_light():
 	is_down = false;

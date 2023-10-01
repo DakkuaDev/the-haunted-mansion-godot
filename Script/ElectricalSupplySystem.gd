@@ -4,7 +4,9 @@ extends Node3D
 @export var label_text : String = "default text"
 @export var turn_off_sound : AudioStream = null
 @export var turn_on_sound : AudioStream = null
+@export var warning_light : OmniLight3D = null
 @export var debug : bool
+
 
 var information_label : Label3D = null
 var turn_off_sound_player : AudioStreamPlayer3D = null
@@ -34,6 +36,9 @@ func _ready():
 	
 	add_light(get_tree().root)
 	print("Total Lights in Scene: " + str(light_array.size()))
+	
+	if(information_label != null):
+		information_label.text = ""
 	
 	if(turn_off_sound != null):
 		turn_off_sound_player.stream = turn_off_sound
@@ -70,6 +75,9 @@ func add_light(node):
 		
 func turn_off_electrical_supply():
 	is_down = true
+	if(warning_light != null):
+		warning_light.light_color = Color8(255, 58, 58)
+		
 	turn_off_sound_player.play()
 	
 	on_electrical_turn_off.emit()
@@ -83,6 +91,9 @@ func turn_off_electrical_supply():
 		
 func turn_on_electrical_supply():
 	is_down = false
+	if(warning_light != null):
+		warning_light.light_color = Color8(255, 250, 94)
+	
 	
 	turn_on_sound_player.play()
 	information_label.text = ""

@@ -8,7 +8,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 enabled_timer_seconds = 12
 stress_increase = 0.1
-label_text = "Interactuar "
+label_text = "interact"
 enabled_sound = ExtResource("2_dxfqq")
 debug = false
 
@@ -16,7 +16,7 @@ debug = false
 visible = false
 
 [node name="Label3D" parent="." index="1"]
-transform = Transform3D(4.62563, 0, 0, 0, 4.62563, 0, 0, 0, 4.62563, -0.19911, 3.0767, -0.144987)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.077, 0)
 
 [node name="AnimatedSprite3D" parent="." index="4"]
 sprite_frames = ExtResource("2_ng25m")
