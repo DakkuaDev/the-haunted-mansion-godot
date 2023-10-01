@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/radio-sound.mp3-b00097d50784c4731262eba62f738
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0.0
 bpm=0.0
 beat_count=0

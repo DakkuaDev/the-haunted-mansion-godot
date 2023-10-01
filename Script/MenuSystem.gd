@@ -5,6 +5,9 @@ extends Control
 @export var main_menu : TextureRect = null
 @export var pause_menu : TextureRect = null
 
+@export var game_over_sound : AudioStreamPlayer = null
+@export var win_sound : AudioStreamPlayer = null
+
 var _inicialice = false;
 var on_pause = false;
 var on_end_game = false;
@@ -42,6 +45,7 @@ func on_game_over_menu(value):
 		game_over_menu.visible = true
 		get_tree().paused = true
 		on_end_game = true
+		game_over_sound.play()
 		
 	else: 
 		game_over_menu.visible = false
@@ -51,5 +55,7 @@ func on_win_menu(value):
 		win_menu.visible = true
 		get_tree().paused = true
 		on_end_game = true
+		win_sound.play()
+		
 	else: win_menu.visible = false
 	

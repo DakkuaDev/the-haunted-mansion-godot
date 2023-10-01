@@ -22,6 +22,7 @@ var ghost_obj_action : bool = false
 var ghost_obj_state : int = 0 # 0: disabled, 1: enabled
 var on_timer = false
 var actual_timer : Timer = null
+var on_electrical_supply = true
 
 var player : Node3D = null
 
@@ -34,9 +35,6 @@ func _ready():
 	obj_anim = get_node("AnimatedSprite3D")
 	enabled_sound_player = get_node("AudioStreamPlayer3D_Enabled")
 	disabled_sound_player = get_node("AudioStreamPlayer3D_Disabled")
-	
-	GlobalManager.electrical_supply.connect("on_electrical_turn_on", _on_electrical_supply, 0)
-	
 	
 	if(enabled_sound_player != null): # sound plaº_on_interact_object
 		enabled_sound_player.stream = enabled_sound
@@ -94,10 +92,13 @@ func _process_ghost_dependency():
 	else:
 			_on_enabled_object()
 
-func _on_electrical_supply():
+func _on_electrical_supply(value):
 	#actual_timer.stop()
 	if(has_ghost_dependency == false):
 		ghost_obj_state = 1
+		on_electrical_supply = value
+		
+	
 	
 func _on_enabled_object():
 	if(ghost_obj_state == 0):	
@@ -131,7 +132,7 @@ func _on_interact_object():
 func _on_body_entered(body:Node3D):
 	print("body entered")
 
-	if(ghost_obj_state == 1):
+	if(ghost_obj_state == 1 && on_electrical_supply):
 		information_label.text += label_text + "\n"
 		ghost_obj_action = true
 		
@@ -144,3 +145,4 @@ func _on_body_exited(body:Node3D):
 	ghost_obj_action = false
 	
 	player = null
+

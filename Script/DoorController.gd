@@ -8,13 +8,15 @@ extends Node3D
 @export var debug : bool = false
 
 
+
 var information_label : Label3D = null
 var next_door_action : bool = false
 var previous_door_action : bool = false
 
-var player : Node3D = null
+var player : CharacterBody3D = null
 
 signal on_door_transition
+signal on_door_transition_end
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,12 +35,12 @@ func _process(delta):
 		print("ui_up")
 		
 		if(player != null):
-			previous_door_action = false
+			previous_door_action = false		
 			
 			on_door_transition.emit()
 			if(on_door_transition_sound != null): on_door_transition_sound.play()
 			
-			on_player_move()
+			on_player_move(0)
 			
 	if Input.is_action_just_pressed("ui_down") && next_door_action == true :
 		print("ui_down")
@@ -49,11 +51,15 @@ func _process(delta):
 			on_door_transition.emit()
 			if(on_door_transition_sound != null): on_door_transition_sound.play()
 				
-			on_player_move()
+			on_player_move(1)
 			
-func on_player_move():
+func on_player_move(direction):
 	await get_tree().create_timer(1.0).timeout
-	player.position = previous_door.position
+	if(direction == 0): player.position = previous_door.position
+	else: player.position = next_door.position
+	
+	on_door_transition_end.emit()
+	
 	
 		
 	
