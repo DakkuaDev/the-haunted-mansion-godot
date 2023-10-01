@@ -20,7 +20,7 @@ func _ready():
 
 func _process(delta):
 	
-	if (Input.is_action_just_pressed("ui_pause_menu") && on_end_game != true):
+	if (Input.is_action_just_pressed("ui_pause_menu") && on_end_game != true && _inicialice == true):
 		if(on_pause):
 			on_pause = false
 			pause_menu.visible = false
