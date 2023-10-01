@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://l5yim6g5npta"]
+[gd_scene load_steps=7 format=3 uid="uid://x8rpdfkkg3hw"]
 
 [ext_resource type="Script" path="res://Script/GhostObjectController.gd" id="1_tr70e"]
 [ext_resource type="AudioStream" uid="uid://svg6clk33brv" path="res://Audio/Sound/beep-6-96243.mp3" id="3_8gqgv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kngny"]
-size = Vector3(1, 1, 17)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnrif"]
 transparency = 1

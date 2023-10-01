@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cj0vgrnbo0kcn"]
 
-[ext_resource type="PackedScene" uid="uid://l5yim6g5npta" path="res://Scene/Logic/GhostObject.tscn" id="1_bupqy"]
+[ext_resource type="PackedScene" uid="uid://x8rpdfkkg3hw" path="res://Scene/Logic/GhostObject.tscn" id="1_bupqy"]
 [ext_resource type="AudioStream" uid="uid://cba7pnifmuk6d" path="res://Audio/Sound/GhostObject/guitar-sound.mp3" id="2_ppjii"]
 [ext_resource type="SpriteFrames" uid="uid://dgm5fm215psji" path="res://Art/Animation/GhostObject/guitar_sprite_frames.tres" id="2_vhxkn"]
 
