@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://cw33n68cyyi0n"]
 
 [ext_resource type="Script" path="res://Script/TimeLeftController.gd" id="1_kq6h2"]
-[ext_resource type="Texture2D" uid="uid://ff1jp5e2ijth" path="res://Art/Sprite/UI/Timer3.png" id="2_sep3u"]
-[ext_resource type="Texture2D" uid="uid://erh21552lwod" path="res://Art/Sprite/UI/Timer1.png" id="3_033up"]
-[ext_resource type="Texture2D" uid="uid://dbthg4b5dr748" path="res://Art/Sprite/UI/Timer2.png" id="4_1akjw"]
+[ext_resource type="Texture2D" uid="uid://ff1jp5e2ijth" path="res://Art/Sprite/UI/TimeLeft/Timer3.png" id="2_dlrfd"]
+[ext_resource type="Texture2D" uid="uid://dx6xgc8e448lg" path="res://Art/Sprite/UI/TimeLeft/Timer1B.png" id="3_3whns"]
+[ext_resource type="Texture2D" uid="uid://wvhdjsybr4uj" path="res://Art/Sprite/UI/TimeLeft/Timer2B.png" id="4_74m8s"]
 [ext_resource type="AudioStream" uid="uid://reclyjcwwkn4" path="res://Audio/Sound/ticking-clock_1-27477.mp3" id="5_2t28p"]
 
 [node name="TimeLeft" type="Control" node_paths=PackedStringArray("ticking_clock_sound")]
@@ -33,9 +33,9 @@ grow_horizontal = 0
 max_value = 120.0
 value = 120.0
 fill_mode = 5
-texture_under = ExtResource("2_sep3u")
-texture_over = ExtResource("3_033up")
-texture_progress = ExtResource("4_1akjw")
+texture_under = ExtResource("2_dlrfd")
+texture_over = ExtResource("3_3whns")
+texture_progress = ExtResource("4_74m8s")
 tint_under = Color(0.976471, 0.976471, 0.976471, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

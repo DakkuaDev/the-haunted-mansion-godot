@@ -376,7 +376,7 @@ stress_increase = 0.5
 ghost_dependency = NodePath("../RoomLight_07")
 
 [node name="Guitar" parent="Interactuable/GhostObj" node_paths=PackedStringArray("ghost_dependency") instance=ExtResource("12_017un")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4753, 31.4969, 1.18065)
+transform = Transform3D(0.999961, 0.0087789, 0, -0.0087789, 0.999961, 0, 0, 0, 1, 10.3329, 31.4969, 1.54519)
 enabled_timer_seconds = 16
 stress_increase = 0.5
 ghost_dependency = NodePath("../RoomLight_08")
