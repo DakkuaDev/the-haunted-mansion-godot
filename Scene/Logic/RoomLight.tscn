@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxw1dmxrwslg1"]
+[gd_scene load_steps=4 format=3 uid="uid://b5jd5q6fnw822"]
 
 [ext_resource type="Script" path="res://Script/LightController.gd" id="1_hdovd"]
 

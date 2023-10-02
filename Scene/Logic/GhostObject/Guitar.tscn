@@ -1,19 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj0vgrnbo0kcn"]
+[gd_scene load_steps=6 format=3 uid="uid://cj0vgrnbo0kcn"]
 
-[ext_resource type="PackedScene" uid="uid://l5yim6g5npta" path="res://Scene/Logic/GhostObject.tscn" id="1_bupqy"]
+[ext_resource type="PackedScene" uid="uid://x8rpdfkkg3hw" path="res://Scene/Logic/GhostObject.tscn" id="1_bupqy"]
 [ext_resource type="AudioStream" uid="uid://cba7pnifmuk6d" path="res://Audio/Sound/GhostObject/guitar-sound.mp3" id="2_ppjii"]
 [ext_resource type="SpriteFrames" uid="uid://dgm5fm215psji" path="res://Art/Animation/GhostObject/guitar_sprite_frames.tres" id="2_vhxkn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kue2n"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ogatv"]
+material = SubResource("StandardMaterial3D_kue2n")
 
 [node name="GhostObject" instance=ExtResource("1_bupqy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 enabled_timer_seconds = 12
 stress_increase = 0.1
-label_text = "Interactuar "
+label_text = "interact"
 enabled_sound = ExtResource("2_ppjii")
 debug = false
 
 [node name="MeshInstance3D" parent="CollisionShape3D" index="0"]
 visible = false
 
+[node name="Label3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0219474, 2.68092, -0.144987)
+
 [node name="AnimatedSprite3D" parent="." index="4"]
 sprite_frames = ExtResource("2_vhxkn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -2.32268, 0, 1, -1.01528e-07, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ogatv")

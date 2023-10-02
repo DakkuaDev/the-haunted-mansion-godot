@@ -20,9 +20,3 @@ transform = Transform3D(-0.00666708, -0.403648, 0.91489, -1.86077e-09, 0.91491, 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
 transform = Transform3D(1, -1.851e-08, -1.86265e-09, 2.32831e-10, 0.866025, -0.5, -2.98023e-08, 0.5, 0.866025, 3.28778, 0.587556, -1.3109)
 mesh = SubResource("QuadMesh_m8la6")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.0337257, -0.160578, 0.986447, 0.0204334, 0.986913, 0.159955, -0.999222, 0.0147619, 0.0365655, 5.94283, 7.2825, 0.0530977)
-light_energy = 3.501
-light_volumetric_fog_energy = 6.867
-shadow_bias = 0.07

@@ -5,13 +5,11 @@ render_mode unshaded, depth_draw_opaque, depth_prepass_alpha;
 
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
-//uniform sampler2D NORMAL_TEXTURE : hint_depth_texture, filter_nearest;
-
+uniform sampler2D NORMAL_TEXTURE : hint_normal_roughness_texture, filter_nearest;
 
 
 uniform vec3 shadow_color : source_color = vec3(0.0);
 uniform float shadow_thickness = 2.0;
-uniform float normal_val = 1.0;
 
 vec2 getDepth(vec2 screen_uv, sampler2D depth_texture, mat4 inv_projection_matrix){
 	float raw_depth = texture(depth_texture, screen_uv)[0];
@@ -37,7 +35,7 @@ void fragment() {
 	float min_depth = 9999999.9;
 	
 
-	//vec3 normal = texture(NORMAL_TEXTURE, SCREEN_UV).rgb * 2.0 - 1.0;
+	vec3 normal = texture(NORMAL_TEXTURE, SCREEN_UV).rgb * 2.0 - 1.0;
 	
 	for (float x = -shadow_thickness; x <= shadow_thickness;x += 1.0){
 		for (float y = -shadow_thickness; y <= shadow_thickness; y += 1.0){
@@ -68,9 +66,9 @@ void fragment() {
 				
 			}
 			
-			//vec3 nu = texture(NORMAL_TEXTURE, SCREEN_UV+vec2(x, y)*e).rgb * 2.0 - 1.0;
+			vec3 nu = texture(NORMAL_TEXTURE, SCREEN_UV+vec2(x, y)*e).rgb * 2.0 - 1.0;
 			
-			depth_diff += (1.0-abs(normal_val))/max(min(dd, depth), 2.0);
+			depth_diff += (1.0-abs(dot(nu, normal)))/max(min(dd, depth), 2.0);
 		}
 	}
 
