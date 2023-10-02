@@ -1,3 +1,5 @@
+** We recommend Windows/Linux executable version for the best graphics experience  **
+
 SYNOPSIS 📖
 
 When night falls, ghosts come out to play... 
@@ -28,19 +30,13 @@ For a better gaming experience, the use of a controller is recommended!
 
 ______________________________________________________________________________________________
 
-Known Issues
-
-W/A/S/D and P, don´t work properly. Use keyboard arrows or a controller.
-Win events don´t trigger properly, so even if you have 0 seconds left to win, the screen won't trigger
 Warning!  ⚠️
 
-For some of us, it was our first Jam, an even more, it was the first time, we all used Godot Engine as an alternative to Unity, so this was really a motivation to try to learn this technology in a very short time. We encountered difficult challenges but overall was a rich experience. We hope you enjoy it!
+For some of us, it was our first Jam, and even more, it was the first time, we all used Godot Engine as an alternative to Unity, so this was really a motivation to try to learn this technology in a very short time. We encountered difficult challenges but overall was a rich experience. We hope you enjoy it!
 
 ______________________________________________________________________________________________
 
 CREDITS
-
-Game Design: Daniel Guerra Gallardo, Sara J. Triviño, Pablo López Corral
 
 Development / Programming: Daniel Guerra Gallardo
 
@@ -50,4 +46,6 @@ Development / Programming: Daniel Guerra Gallardo
 
 Sound Effects and Music: https://pixabay.com/  (Third Party)
 
-# indie-spain-jam-23
+
+
+Project License: MIT.  Github Cod
